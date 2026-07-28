@@ -1,0 +1,2588 @@
+<meta charset="utf-8">
+<title>Bloom — a quiet daily moment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Bloom">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="color-scheme" content="light dark">
+<link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+<link rel="icon" href="data:image/png;base64,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">
+<meta name="theme-color" content="#17121D">
+
+<style>
+/* ============================================================
+   Bloom — palette: "a garden through the day"
+   Ground shifts with the hour; blooms are coloured by mood.
+   Type is the device's own: New York (ui-serif) + SF (system).
+   No web fonts — nothing to fail, nothing to wait for, works offline.
+   ============================================================ */
+
+:root{
+  /* --- light: dew light --- */
+  --ground:      #EDF0EA;
+  --ground-deep: #E3E9DE;
+  --surface:     #FBFCF9;
+  --surface-2:   #F3F6F0;
+  --ink:         #1F2B23;
+  --ink-soft:    #55665B;
+  --ink-faint:   #879489;
+  --line:        #DDE4D9;
+  --line-soft:   #E8EDE4;
+  --accent:      #B4526B;
+  --accent-ink:  #FFFFFF;
+  --accent-soft: #F4E2E5;
+  --gold:        #C08438;
+  --danger:      #A8493E;
+  --stem:        #9DAF95;
+  --shadow:      0 18px 40px -26px rgba(31,43,35,.45);
+  --shadow-lift: 0 26px 60px -28px rgba(31,43,35,.5);
+  --scrim:       rgba(31,43,35,.32);
+
+  /* ambient light per phase of day (light theme) */
+  --amb-a: #F0CBA0;
+  --amb-b: #DCE7CB;
+  --amb-strength: .55;
+
+  --r-lg: 22px;
+  --r-md: 15px;
+  --r-sm: 11px;
+  --tap: 44px;
+}
+
+[data-phase="dawn"]  { --amb-a:#F2C9A2; --amb-b:#E6DCC4; }
+[data-phase="day"]   { --amb-a:#E3E9C9; --amb-b:#D9E6DE; }
+[data-phase="dusk"]  { --amb-a:#F1C7C2; --amb-b:#E0D3E2; }
+[data-phase="night"] { --amb-a:#CDD4EC; --amb-b:#D8DEE6; --amb-strength:.5; }
+
+/* Dark isn't the light palette turned down — it's the same garden after
+   sunset. Warm aubergine night rather than dark green, so the rose and
+   gold read as jewellery against it instead of moss in the dark. */
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:      #17121D;
+    --ground-deep: #110D16;
+    --surface:     #221B29;
+    --surface-2:   #2B2333;
+    --ink:         #F3EDF4;
+    --ink-soft:    #B7AABE;
+    --ink-faint:   #9A8DA2;
+    --line:        #372D3F;
+    --line-soft:   #2A2332;
+    --accent:      #F0A2B6;
+    --accent-ink:  #2A1119;
+    --accent-soft: #3C2431;
+    --gold:        #EBC081;
+    --danger:      #E9948A;
+    --stem:        #6B7F6C;
+    --shadow:      0 18px 40px -26px rgba(0,0,0,.8);
+    --shadow-lift: 0 26px 60px -26px rgba(0,0,0,.85);
+    --scrim:       rgba(9,5,13,.66);
+    --amb-strength: .5;
+  }
+  [data-phase="dawn"]  { --amb-a:#6A4234; --amb-b:#3A3040; }
+  [data-phase="day"]   { --amb-a:#4A4438; --amb-b:#33404A; }
+  [data-phase="dusk"]  { --amb-a:#6B3145; --amb-b:#3A2B52; }
+  [data-phase="night"] { --amb-a:#2F3468; --amb-b:#432A4A; }
+}
+
+/* the viewer's theme toggle stamps data-theme; it must beat the media query */
+:root[data-theme="light"]{
+  --ground:#EDF0EA; --ground-deep:#E3E9DE; --surface:#FBFCF9; --surface-2:#F3F6F0;
+  --ink:#1F2B23; --ink-soft:#55665B; --ink-faint:#879489;
+  --line:#DDE4D9; --line-soft:#E8EDE4;
+  --accent:#B4526B; --accent-ink:#FFFFFF; --accent-soft:#F4E2E5;
+  --gold:#C08438; --danger:#A8493E; --stem:#9DAF95;
+  --shadow:0 18px 40px -26px rgba(31,43,35,.45);
+  --shadow-lift:0 26px 60px -28px rgba(31,43,35,.5);
+  --scrim:rgba(31,43,35,.32); --amb-strength:.55;
+}
+:root[data-theme="light"][data-phase="dawn"]  { --amb-a:#F2C9A2; --amb-b:#E6DCC4; }
+:root[data-theme="light"][data-phase="day"]   { --amb-a:#E3E9C9; --amb-b:#D9E6DE; }
+:root[data-theme="light"][data-phase="dusk"]  { --amb-a:#F1C7C2; --amb-b:#E0D3E2; }
+:root[data-theme="light"][data-phase="night"] { --amb-a:#CDD4EC; --amb-b:#D8DEE6; --amb-strength:.5; }
+
+:root[data-theme="dark"]{
+  --ground:#17121D; --ground-deep:#110D16; --surface:#221B29; --surface-2:#2B2333;
+  --ink:#F3EDF4; --ink-soft:#B7AABE; --ink-faint:#9A8DA2;
+  --line:#372D3F; --line-soft:#2A2332;
+  --accent:#F0A2B6; --accent-ink:#2A1119; --accent-soft:#3C2431;
+  --gold:#EBC081; --danger:#E9948A; --stem:#6B7F6C;
+  --shadow:0 18px 40px -26px rgba(0,0,0,.8);
+  --shadow-lift:0 26px 60px -26px rgba(0,0,0,.85);
+  --scrim:rgba(9,5,13,.66); --amb-strength:.5;
+}
+:root[data-theme="dark"][data-phase="dawn"]  { --amb-a:#6A4234; --amb-b:#3A3040; }
+:root[data-theme="dark"][data-phase="day"]   { --amb-a:#4A4438; --amb-b:#33404A; }
+:root[data-theme="dark"][data-phase="dusk"]  { --amb-a:#6B3145; --amb-b:#3A2B52; }
+:root[data-theme="dark"][data-phase="night"] { --amb-a:#2F3468; --amb-b:#432A4A; }
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+/* several components below set display:flex, which would otherwise beat the
+   browser's [hidden] rule and leave "hidden" elements on screen. */
+[hidden]{ display:none !important; }
+
+html{ background:var(--ground); }
+body{
+  margin:0;
+  min-height:100vh;
+  min-height:100dvh;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+  overflow-x:hidden;
+}
+
+/* ambient light — fixed, behind everything, shifts with the hour */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:var(--amb-strength);
+  background:
+    radial-gradient(120% 70% at 12% -8%,  var(--amb-a), transparent 62%),
+    radial-gradient(110% 65% at 92% 4%,   var(--amb-b), transparent 58%);
+  transition:opacity 1.2s ease;
+}
+
+.serif{ font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif; }
+
+.label{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+
+.sr{
+  position:absolute; width:1px; height:1px;
+  margin:-1px; padding:0; border:0;
+  clip:rect(0 0 0 0); clip-path:inset(50%);
+  overflow:hidden; white-space:nowrap;
+}
+
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:6px;
+}
+button{ font:inherit; color:inherit; }
+
+/* ------------------------------------------------------------ shell */
+.shell{
+  position:relative;
+  z-index:1;
+  max-width:460px;
+  margin:0 auto;
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  padding:calc(14px + env(safe-area-inset-top)) 20px calc(28px + env(safe-area-inset-bottom));
+}
+
+/* ------------------------------------------------------------ topbar */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:4px 0 22px;
+}
+.brand{
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:27px;
+  font-weight:500;
+  letter-spacing:.01em;
+  line-height:1;
+}
+.bar-right{ display:flex; align-items:center; gap:8px; }
+
+.tabs{
+  display:flex;
+  gap:2px;
+  padding:3px;
+  border-radius:999px;
+  background:var(--surface);
+  border:1px solid var(--line);
+}
+.tab{
+  border:0;
+  background:transparent;
+  color:var(--ink-soft);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.01em;
+  padding:7px 15px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:background .22s ease, color .22s ease;
+}
+.tab[aria-selected="true"]{
+  background:var(--ink);
+  color:var(--ground);
+}
+
+.icon-btn{
+  width:36px; height:36px;
+  display:grid; place-items:center;
+  border:1px solid var(--line);
+  background:var(--surface);
+  border-radius:999px;
+  cursor:pointer;
+  color:var(--ink-soft);
+  transition:color .2s ease, border-color .2s ease;
+}
+.icon-btn:hover{ color:var(--ink); border-color:var(--ink-faint); }
+.icon-btn svg{ display:block; }
+
+/* ------------------------------------------------------------ views */
+main{ flex:1; }
+.view[hidden]{ display:none; }
+.view{ animation:rise .45s cubic-bezier(.2,.8,.3,1) both; }
+@keyframes rise{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:none;} }
+
+/* ------------------------------------------------------------ today */
+.greet{
+  position:relative;
+  text-align:center;
+  padding:10px 0 30px;
+}
+.glow{
+  position:absolute;
+  left:50%; top:44%;
+  width:210px; height:210px;
+  margin:-105px 0 0 -105px;
+  border-radius:50%;
+  background:radial-gradient(circle, var(--amb-a), transparent 68%);
+  opacity:.75;
+  filter:blur(2px);
+  animation:breathe 11s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes breathe{
+  0%,100%{ transform:scale(.88); opacity:.5; }
+  50%    { transform:scale(1.14); opacity:.9; }
+}
+.greet h1{
+  position:relative;
+  margin:0;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:33px;
+  font-weight:400;
+  letter-spacing:.005em;
+  line-height:1.15;
+  text-wrap:balance;
+}
+.greet .dateline{
+  position:relative;
+  margin:9px 0 0;
+  font-size:13px;
+  letter-spacing:.02em;
+  color:var(--ink-soft);
+}
+
+.reminder{
+  position:relative;
+  padding:22px 0 24px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  margin-bottom:26px;
+}
+.reminder-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:12px;
+}
+.reminder p{
+  margin:0;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:23px;
+  font-style:italic;
+  font-weight:400;
+  line-height:1.42;
+  letter-spacing:.004em;
+  text-wrap:pretty;
+}
+.shuffle{
+  flex:none;
+  width:30px; height:30px;
+  display:grid; place-items:center;
+  border:0; background:transparent;
+  border-radius:999px;
+  color:var(--ink-faint);
+  cursor:pointer;
+  transition:color .2s ease, transform .35s ease;
+}
+.shuffle:hover{ color:var(--accent); }
+.shuffle:active{ transform:rotate(-160deg); }
+
+.note-card{
+  display:flex;
+  gap:13px;
+  align-items:flex-start;
+  padding:15px 17px;
+  margin-bottom:26px;
+  border-radius:var(--r-md);
+  background:var(--accent-soft);
+}
+.note-card .sprig{ flex:none; color:var(--accent); margin-top:1px; }
+.note-card > .body{ flex:1 1 auto; min-width:0; }
+.note-card p{
+  margin:5px 0 0;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:17px;
+  font-style:italic;
+  line-height:1.45;
+}
+
+.block{ margin-bottom:28px; }
+.block > .label{ display:block; margin-bottom:13px; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:7px; }
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--ink-soft);
+  font-size:14px;
+  padding:9px 14px 9px 11px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:border-color .18s ease, background .18s ease, color .18s ease;
+}
+.chip .dot{
+  width:9px; height:9px;
+  border-radius:50%;
+  background:var(--dot);
+  flex:none;
+  transition:transform .18s ease;
+}
+.chip:hover{ border-color:var(--ink-faint); }
+.chip[aria-pressed="true"]{
+  border-color:var(--dot);
+  background:var(--surface);
+  color:var(--ink);
+  font-weight:500;
+  box-shadow:inset 0 0 0 1px var(--dot);
+}
+.chip[aria-pressed="true"] .dot{ transform:scale(1.35); }
+
+.prompt-row{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:6px;
+}
+.prompt{
+  margin:0;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:20px;
+  font-weight:400;
+  line-height:1.35;
+  text-wrap:balance;
+}
+.sub{
+  margin:6px 0 13px;
+  font-size:13.5px;
+  color:var(--ink-faint);
+}
+
+textarea{
+  display:block;
+  width:100%;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:17px;
+  line-height:1.55;
+  color:var(--ink);
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  padding:15px 16px;
+  resize:none;
+  min-height:132px;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-soft);
+}
+textarea::placeholder{ color:var(--ink-faint); font-style:italic; }
+
+.counter{
+  margin:7px 2px 0;
+  font-size:12px;
+  color:var(--ink-faint);
+  text-align:right;
+  font-variant-numeric:tabular-nums;
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.counter.show{ opacity:1; }
+.counter.over{ color:var(--danger); opacity:1; }
+
+.btn{
+  width:100%;
+  border:0;
+  background:var(--ink);
+  color:var(--ground);
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:.01em;
+  padding:15px;
+  border-radius:var(--r-md);
+  cursor:pointer;
+  transition:opacity .2s ease, transform .12s ease;
+}
+.btn:disabled{ opacity:.3; cursor:default; }
+.btn:not(:disabled):active{ transform:scale(.985); }
+.btn.ghost{
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--line);
+  font-weight:400;
+}
+.btn.quiet{
+  background:var(--surface);
+  color:var(--ink);
+  border:1px solid var(--line);
+  font-weight:400;
+}
+.btn-row{ display:flex; flex-direction:column; gap:9px; margin-top:15px; }
+
+.save-state{
+  min-height:20px;
+  margin:11px 0 0;
+  font-size:13.5px;
+  text-align:center;
+  color:var(--ink-soft);
+  opacity:0;
+  transition:opacity .35s ease;
+}
+.save-state.show{ opacity:1; }
+.save-state.bad{ color:var(--danger); }
+
+/* --- resurfaced past entry --- */
+.echo{
+  margin-top:6px;
+  padding:19px 19px 17px;
+  border-radius:var(--r-lg);
+  background:var(--surface);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.echo-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:11px;
+}
+.echo blockquote{
+  margin:0;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:17.5px;
+  line-height:1.5;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+.echo .when{
+  margin:12px 0 0;
+  font-size:12.5px;
+  color:var(--ink-faint);
+}
+
+/* ------------------------------------------------------------ garden */
+.garden-head{ padding:2px 0 20px; }
+.garden-head h2{
+  margin:0 0 5px;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:29px;
+  font-weight:400;
+}
+.garden-head p{ margin:0; font-size:13.5px; color:var(--ink-soft); }
+
+.month{ margin-bottom:26px; }
+.month-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:4px;
+}
+.month-head .name{ flex:none; }
+.month-head .rule{ flex:1; height:1px; background:var(--line); }
+.month-head .n{
+  flex:none;
+  font-size:12px;
+  color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+.bed{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  gap:2px;
+  padding-top:6px;
+  border-bottom:1px solid var(--line-soft);
+}
+.bloom{
+  border:0;
+  background:transparent;
+  padding:4px 2px 0;
+  min-width:var(--tap);
+  min-height:var(--tap);
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  cursor:pointer;
+  border-radius:var(--r-sm);
+  transition:transform .22s cubic-bezier(.2,.8,.3,1), background .2s ease;
+}
+.bloom:hover{ transform:translateY(-3px); }
+.bloom[aria-expanded="true"]{ background:var(--accent-soft); }
+.bloom svg{ display:block; }
+.bloom.grow svg{ animation:grow .5s cubic-bezier(.2,.9,.3,1.15) both; animation-delay:var(--d,0ms); }
+@keyframes grow{
+  from{ transform:scale(.2) translateY(8px); opacity:0; }
+  to  { transform:none; opacity:1; }
+}
+
+.empty{
+  text-align:center;
+  padding:44px 12px;
+}
+.empty p{
+  margin:0 0 18px;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:19px;
+  font-style:italic;
+  color:var(--ink-soft);
+  text-wrap:balance;
+}
+.empty .btn{ width:auto; padding:12px 24px; border-radius:999px; }
+
+/* ------------------------------------------------------------ sheet */
+.scrim{
+  position:fixed;
+  inset:0;
+  background:var(--scrim);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+  z-index:40;
+  animation:fade .25s ease both;
+}
+@keyframes fade{ from{opacity:0} to{opacity:1} }
+
+.sheet{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:41;
+  margin:0 auto;
+  max-width:460px;
+  max-height:86vh;
+  max-height:86dvh;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  background:var(--surface);
+  border-radius:24px 24px 0 0;
+  border:1px solid var(--line);
+  border-bottom:0;
+  box-shadow:var(--shadow-lift);
+  padding:10px 22px calc(26px + env(safe-area-inset-bottom));
+  animation:slide .3s cubic-bezier(.2,.85,.3,1) both;
+}
+@keyframes slide{ from{ transform:translateY(100%); } to{ transform:none; } }
+/* the sheet takes focus on open for screen readers; it doesn't need a ring */
+.sheet:focus, .sheet:focus-visible{ outline:none; }
+.grip{
+  width:38px; height:4px;
+  border-radius:999px;
+  background:var(--line);
+  margin:0 auto 16px;
+}
+.sheet h3{
+  margin:0 0 3px;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:24px;
+  font-weight:400;
+}
+.sheet .entry-text{
+  margin:15px 0 0;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:18px;
+  line-height:1.55;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+.sheet .by-line{
+  margin:14px 0 0;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:17px;
+  font-style:italic;
+  color:var(--accent);
+}
+.mood-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-top:11px;
+  padding:5px 12px 5px 10px;
+  border-radius:999px;
+  font-size:13px;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+}
+.mood-pill .dot{ width:9px; height:9px; border-radius:50%; background:var(--dot); flex:none; }
+
+/* the same pill, but tappable — a feeling can be set or changed any time */
+button.mood-pill{
+  font:inherit;
+  font-size:13px;
+  color:var(--ink);
+  cursor:pointer;
+  transition:border-color .18s ease;
+}
+button.mood-pill:hover{ border-color:var(--ink-faint); }
+.mood-pill .caret{ color:var(--ink-faint); font-size:15px; line-height:1; margin-left:1px; }
+.add-mood{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:11px;
+  padding:6px 13px;
+  border-radius:999px;
+  font:inherit;
+  font-size:13px;
+  color:var(--ink-soft);
+  background:transparent;
+  border:1px dashed var(--line);
+  cursor:pointer;
+  transition:color .18s ease, border-color .18s ease;
+}
+.add-mood .ghost{
+  width:9px; height:9px;
+  border-radius:50%;
+  border:1px dashed var(--ink-faint);
+  flex:none;
+}
+.add-mood:hover{ color:var(--accent); border-color:var(--accent); }
+.mood-edit{ margin-top:13px; animation:rise .3s cubic-bezier(.2,.8,.3,1) both; }
+.mood-edit .sub{ margin:9px 0 0; font-size:12.5px; }
+
+.sheet-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:22px;
+  padding-top:16px;
+  border-top:1px solid var(--line-soft);
+}
+.text-btn{
+  border:0;
+  background:transparent;
+  font-size:14px;
+  padding:9px 12px;
+  border-radius:var(--r-sm);
+  cursor:pointer;
+  color:var(--ink-soft);
+}
+.text-btn.danger{ color:var(--danger); }
+.text-btn:hover{ background:var(--surface-2); }
+
+/* settings sheet rows */
+.rows{ display:flex; flex-direction:column; gap:2px; margin-top:6px; }
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px 2px;
+  border-bottom:1px solid var(--line-soft);
+}
+.row:last-child{ border-bottom:0; }
+.row .t{ font-size:15px; }
+.row .d{ font-size:12.5px; color:var(--ink-faint); margin-top:2px; }
+.row .lead{ min-width:0; }
+
+.seg{
+  display:flex;
+  flex:none;
+  padding:2px;
+  gap:2px;
+  border-radius:999px;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+}
+.seg button{
+  border:0;
+  background:transparent;
+  color:var(--ink-soft);
+  font-size:12.5px;
+  padding:6px 11px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.seg button[aria-pressed="true"]{ background:var(--ink); color:var(--ground); }
+
+.row .act{
+  flex:none;
+  border:1px solid var(--line);
+  background:var(--surface-2);
+  font-size:13px;
+  padding:8px 14px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.row .act.danger{ color:var(--danger); border-color:var(--danger); background:transparent; }
+
+/* --- looking closer --- */
+.look-closer{
+  margin-top:14px;
+  width:100%;
+  font-size:14.5px;
+}
+/* the offer after saving — it arrives below the fold, so it announces itself
+   gently (and gets scrolled into view) rather than sitting there unseen */
+#afterSave .look-closer{
+  animation:rise .5s cubic-bezier(.2,.8,.3,1) both;
+  border-color:var(--accent);
+  color:var(--accent);
+}
+#afterSave .look-closer:hover{ background:var(--accent-soft); }
+.deep-top{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+.step-count{
+  font-size:12px;
+  color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+.deep-quote{
+  margin:0 0 20px;
+  padding-left:14px;
+  border-left:2px solid var(--accent);
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:15.5px;
+  font-style:italic;
+  line-height:1.5;
+  color:var(--ink-soft);
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  max-height:5.2em;
+  overflow:hidden;
+}
+.sheet h3.deep-q{
+  margin:0 0 4px;
+  font-size:23px;
+  line-height:1.28;
+  text-wrap:balance;
+}
+.deep-block{
+  margin-top:20px;
+  padding-top:16px;
+  border-top:1px solid var(--line-soft);
+}
+.deep-block p{
+  margin:7px 0 0;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size:16.5px;
+  line-height:1.5;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+.backup-box{
+  margin-top:14px;
+  min-height:110px;
+  font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size:11.5px;
+  line-height:1.45;
+  background:var(--surface-2);
+  resize:vertical;
+}
+.fineprint{
+  margin:20px 0 0;
+  font-size:12.5px;
+  line-height:1.6;
+  color:var(--ink-faint);
+}
+
+/* ------------------------------------------------------------ toast */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:calc(22px + env(safe-area-inset-bottom));
+  transform:translateX(-50%);
+  z-index:60;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  max-width:calc(100vw - 36px);
+  padding:12px 12px 12px 18px;
+  border-radius:999px;
+  background:var(--ink);
+  color:var(--ground);
+  font-size:14px;
+  box-shadow:var(--shadow-lift);
+  animation:pop .3s cubic-bezier(.2,.85,.3,1) both;
+}
+@keyframes pop{ from{ opacity:0; transform:translate(-50%,14px);} to{ opacity:1; transform:translate(-50%,0);} }
+.toast button{
+  border:0;
+  background:var(--accent);
+  color:var(--accent-ink);
+  font-size:13px;
+  font-weight:600;
+  padding:8px 15px;
+  border-radius:999px;
+  cursor:pointer;
+  flex:none;
+}
+
+/* ------------------------------------------------------------ install hint */
+.hint{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  margin:0 0 22px;
+  padding:14px 14px 14px 16px;
+  border-radius:var(--r-md);
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  font-size:13.5px;
+  line-height:1.5;
+  color:var(--ink-soft);
+}
+.hint p{ margin:0; }
+.hint > .body{ flex:1 1 auto; min-width:0; }
+.text-btn.tight{
+  margin:7px 0 0 -12px;
+  color:var(--accent);
+  font-size:13.5px;
+}
+.hint .x, .note-card .x{
+  flex:none;
+  border:0; background:transparent;
+  color:var(--ink-faint);
+  cursor:pointer;
+  padding:2px 4px;
+  border-radius:6px;
+  line-height:1;
+  font-size:17px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+}
+</style>
+
+<div class="shell">
+  <header class="topbar">
+    <span class="brand">Bloom</span>
+    <div class="bar-right">
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button class="tab" id="tab-today" role="tab" aria-selected="true" aria-controls="view-today" data-view="today">Today</button>
+        <button class="tab" id="tab-garden" role="tab" aria-selected="false" aria-controls="view-garden" data-view="garden" tabindex="-1">Garden</button>
+      </nav>
+      <button class="icon-btn" id="settingsBtn" aria-label="Settings and backup">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="5.5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="18.5" r="1.6"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================ TODAY ============================ -->
+    <section id="view-today" class="view" role="tabpanel" aria-labelledby="tab-today" tabindex="-1">
+      <div class="greet">
+        <div class="glow" aria-hidden="true"></div>
+        <h1 id="greeting">Hello</h1>
+        <p class="dateline" id="dateline"></p>
+      </div>
+
+      <div id="installHint" class="hint" hidden>
+        <p>Tip — tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>. It opens like an app, and keeps your entries safer.</p>
+        <button class="x" id="hintClose" aria-label="Dismiss tip">&times;</button>
+      </div>
+
+      <div id="backupNudge" class="hint" hidden>
+        <div class="body">
+          <p id="backupNudgeText"></p>
+          <button class="text-btn tight" id="backupNudgeGo">Save a copy</button>
+        </div>
+        <button class="x" id="backupNudgeClose" aria-label="Not now">&times;</button>
+      </div>
+
+      <div class="reminder">
+        <div class="reminder-head">
+          <span class="label">A gentle reminder</span>
+          <button class="shuffle" id="shuffleBtn" aria-label="Show another reminder">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 11a8 8 0 0 0-13.7-5.4L4 8"/><path d="M4 4v4h4"/>
+              <path d="M4 13a8 8 0 0 0 13.7 5.4L20 16"/><path d="M20 20v-4h-4"/>
+            </svg>
+          </button>
+        </div>
+        <p class="serif" id="affirmation"></p>
+      </div>
+
+      <div id="noteCard" class="note-card" hidden>
+        <span class="sprig" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M12 21V9"/>
+            <path d="M12 14.5c0-3.2 2.1-5.5 5.5-5.5 0 3.2-2.1 5.5-5.5 5.5Z" fill="currentColor" stroke="none"/>
+            <path d="M12 18c0-2.8-1.9-4.8-4.8-4.8 0 2.8 1.9 4.8 4.8 4.8Z" fill="currentColor" stroke="none"/>
+            <circle cx="12" cy="5.6" r="2.6" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <div class="body">
+          <span class="label" id="noteFrom">From me</span>
+          <p class="serif" id="noteText"></p>
+        </div>
+        <button class="x" id="noteClose" aria-label="Hide today's note">&times;</button>
+      </div>
+
+      <div class="block">
+        <span class="label" id="moodLabel">How are you, honestly</span>
+        <div class="chips" id="moodChips" role="group" aria-labelledby="moodLabel"></div>
+      </div>
+
+      <div class="block">
+        <div class="prompt-row">
+          <h2 class="prompt" id="promptText">What's one good thing about today?</h2>
+          <button class="shuffle" id="promptShuffle" aria-label="Ask me something else">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 11a8 8 0 0 0-13.7-5.4L4 8"/><path d="M4 4v4h4"/>
+              <path d="M4 13a8 8 0 0 0 13.7 5.4L20 16"/><path d="M20 20v-4h-4"/>
+            </svg>
+          </button>
+        </div>
+        <p class="sub" id="promptSub">Big or small — whatever comes to mind.</p>
+        <label class="sr" for="entryText">Your note for today</label>
+        <textarea id="entryText" rows="5" placeholder="Today, something good was…" maxlength="1400"></textarea>
+        <p class="counter" id="counter" aria-hidden="true"></p>
+        <button class="btn" id="saveBtn" disabled>Save this moment</button>
+        <p class="save-state" id="saveState"></p>
+        <div id="afterSave"></div>
+      </div>
+
+      <div id="echoWrap"></div>
+    </section>
+
+    <!-- ============================ GARDEN ============================ -->
+    <section id="view-garden" class="view" role="tabpanel" aria-labelledby="tab-garden" tabindex="-1" hidden>
+      <div class="garden-head">
+        <h2>Your garden</h2>
+        <p id="gardenCount">&nbsp;</p>
+      </div>
+      <div id="months"></div>
+      <div id="empty" class="empty" hidden>
+        <p>Nothing planted yet.<br>Your first moment is one tap away.</p>
+        <button class="btn quiet" id="goToday">Go add one</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="sheetHost"></div>
+<div id="toastHost"></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============================================================
+     ✏️  EDIT ME — notes from you.
+     These appear on her Today screen every few days, under
+     "From me". Replace them with your own words — as many or as
+     few as you like. Leave the list empty ( [] ) to hide it.
+     ============================================================ */
+  /* ============================================================
+     ✏️  EDIT ME — the first bloom.
+     This is planted in her garden before she ever opens it, so
+     it's never empty, and the first thing she reads in there is
+     from you. It appears once, on her first visit only; if she
+     removes it, it stays removed.
+     Set `text` to "" to skip it entirely.
+     ============================================================ */
+  const FIRST_BLOOM = {
+    from: "Angelo",
+    mood: "loved",
+    text: "Planted this one for you, so your garden was never empty. Everything after this is yours."
+  };
+
+  /* One of these appears each day, in order, then the list starts over.
+     Fourteen means a fortnight before she sees one twice. Add or remove
+     freely — the rotation just uses however many are here. */
+  const NOTES_FROM_ME = [
+    "Hope today is kind to you.",
+    "Whatever kind of day this turns out to be, I'm glad you're in mine.",
+    "You don't have to be having a good day for me to be proud of you.",
+    "Whenever you're reading this — I'm thinking about you.",
+    "If today is heavy, put some of it down. It'll keep.",
+    "You're allowed to take up space. You always were.",
+    "I hope you catch yourself being lovely today, the way I do.",
+    "Nothing you write in here has to impress anyone. Least of all me.",
+    "You've got through every hard day so far. That's a perfect record.",
+    "Drink some water, love. And eat something proper.",
+    "I like who you are on the ordinary days too.",
+    "If nobody's told you today: you're doing enough.",
+    "Come back to this whenever. It'll wait for you.",
+    "I hope something small surprises you today."
+  ];
+
+  /* ------------------------------------------------------------ content */
+  const AFFIRMATIONS = [
+    "You get to notice one good thing today. That's enough.",
+    "Small moments of good still count.",
+    "Rest is not something you need to earn.",
+    "You're allowed to have an ordinary day and still look for the light in it.",
+    "Noticing what's good doesn't mean ignoring what's hard.",
+    "One quiet minute for yourself is still time well spent.",
+    "You don't have to feel happy to look for something good — just curious.",
+    "The little things add up more than people think.",
+    "You're doing better than the hard days make you feel.",
+    "This is just for you. No one else needs to see it.",
+    "Some days the good thing is small. That's still worth noting.",
+    "You get to decide what counts as good enough for today.",
+    "A moment of gratitude doesn't have to be big to be real.",
+    "You're allowed to take up this small bit of time for yourself.",
+    "Nothing here is being graded. There's no wrong answer.",
+    "Even a tiring day usually has one soft spot in it.",
+    "You're building something, one small note at a time.",
+    "Today's good thing doesn't need to top yesterday's.",
+    "It's okay if today's answer is simple. Simple still counts.",
+    "You showed up here again — that's already something.",
+    "The good things don't have to be loud to matter.",
+    "Some days, warmth is just a quiet cup of tea and five minutes alone.",
+    "You are allowed to feel more than one thing at once.",
+    "This is a small garden. It grows slowly, and that's fine.",
+    "Noticing is a quiet kind of practice, not a test.",
+    "You get to choose what you carry from today.",
+    "A calm five minutes is never wasted time.",
+    "The good doesn't cancel out the hard. Both can be true.",
+    "Coming back after a gap isn't starting over. It's just coming back.",
+    "You are not behind on anything here.",
+    "Being gentle with yourself counts as doing something.",
+    "Not every day needs a lesson in it.",
+    "You're allowed to be proud of something nobody else noticed.",
+    "Whatever you write here is the right amount."
+  ];
+
+  // Everyday prompts, and a softer set for the harder days.
+  const PROMPTS = [
+    { q:"What's one good thing about today?",        s:"Big or small — whatever comes to mind." },
+    { q:"What made you smile, even briefly?",        s:"It can be very silly. Silly is good." },
+    { q:"Who was good to you today?",                s:"Or who did you get to be good to?" },
+    { q:"What's something you're looking forward to?", s:"Near or far, certain or not." },
+    { q:"What did you notice that others might have walked past?", s:"Light, a sound, a small kindness." },
+    { q:"What went better than you expected?",       s:"Even slightly better counts." },
+    { q:"What are you grateful for right now?",      s:"Right this minute, not in general." },
+    { q:"What's something small you did well?",      s:"Getting through it counts as doing it well." },
+    { q:"What felt like comfort today?",             s:"A place, a person, a taste, a quiet." },
+    { q:"What would you want to remember about today in a year?", s:"Even the ordinary parts." }
+  ];
+  const SOFT_PROMPTS = [
+    { q:"What's one thing that made today survivable?", s:"It's allowed to be tea, or a nap, or nothing much." },
+    { q:"What was the softest part of today?",          s:"Even a minute of it counts." },
+    { q:"What do you need right now?",                  s:"Naming it is enough. You don't have to solve it." },
+    { q:"What are you letting yourself off the hook for?", s:"Today doesn't have to be productive to be okay." }
+  ];
+
+  // Mood → colour. This is what gives the garden its meaning:
+  // months of tired blue, weeks of gold. Honest options included.
+  const MOODS = [
+    { id:"calm",     name:"Calm",     c:"#4F9C97", d:"#6FC0BA", soft:false },
+    { id:"content",  name:"Content",  c:"#8FA678", d:"#A9C08F", soft:false },
+    { id:"grateful", name:"Grateful", c:"#C97F5E", d:"#E09B77", soft:false },
+    { id:"joyful",   name:"Joyful",   c:"#DFA03F", d:"#EDBB63", soft:false },
+    { id:"loved",    name:"Loved",    c:"#BE5D7C", d:"#EE8CBC", soft:false },
+    { id:"hopeful",  name:"Hopeful",  c:"#6DA37F", d:"#8AC29B", soft:false },
+    { id:"tired",    name:"Tired",    c:"#71849E", d:"#93A6C0", soft:true  },
+    { id:"restless", name:"Restless", c:"#8579A6", d:"#B5A7E0", soft:true  },
+    { id:"heavy",    name:"Heavy",    c:"#6A7280", d:"#8B94A3", soft:true  }
+  ];
+  const NEUTRAL = { c:"#A3AB9E", d:"#7A8880" };
+
+  // The deeper pass. Her own written moment answers "what happened" already,
+  // so this only asks the three that build on it — one at a time, all skippable.
+  const DEEP = [
+    { key:"why",    label:"What made it good",
+      q:"What made this good?",
+      s:"What was it about it — the thing itself, the people, the timing, you?" },
+    { key:"friend", label:"If it were a friend",
+      q:"What would you say to a friend who'd done this?",
+      s:"Say it to them properly. Out loud, if you like." },
+    { key:"shows",  label:"What it says about you",
+      q:"What does this show about you?",
+      s:"The hardest one. Take the credit you'd give anyone else." }
+  ];
+
+  const LS_ENTRIES = "bloom.entries.v2";
+  const LS_DRAFT   = "bloom.draft.v1";
+  const LS_THEME   = "bloom.theme.v1";
+  const LS_HINT    = "bloom.hint.v1";
+  const LS_SEEDED  = "bloom.seeded.v1";
+  const LS_NOTEDAY = "bloom.notehidden.v1";   // day index she dismissed a note on
+  const LS_NOTESOFF= "bloom.notesoff.v1";     // "1" = don't show them at all
+  const LS_BACKUP  = "bloom.lastbackup.v1";   // when she last took a copy, and of how many
+  const LS_NUDGED  = "bloom.backupnudge.v1";  // day she last waved the offer away
+  const LEGACY_KEY = "bloom-entries";
+  const MAX_LEN    = 1400;
+
+  const $ = (id) => document.getElementById(id);
+  let entries = [];        // ascending by date
+  let selectedMood = null;
+  let openSheet = null;    // { close }
+  let toastTimer = null;
+  let undoBuffer = null;
+  let storageBroken = false;
+
+  /* ------------------------------------------------------------ storage
+     localStorage is the source of truth: it works on her phone, offline,
+     with no capability grant. If a host storage API happens to exist we
+     read from it once (to pick up anything saved by an older version)
+     and mirror writes to it, but we never depend on it. */
+  const hostStore = (function(){
+    const s = window.storage;
+    return (s && typeof s.get === "function" && typeof s.set === "function") ? s : null;
+  })();
+
+  function lsGet(key){
+    try { return window.localStorage.getItem(key); } catch(e){ return null; }
+  }
+  function lsSet(key, val){
+    try { window.localStorage.setItem(key, val); return true; } catch(e){ return false; }
+  }
+  function lsDel(key){
+    try { window.localStorage.removeItem(key); } catch(e){}
+  }
+
+  function parseEntries(raw){
+    if (!raw) return [];
+    let data;
+    try { data = JSON.parse(raw); } catch(e){ return []; }
+    const list = Array.isArray(data) ? data : (data && Array.isArray(data.entries) ? data.entries : []);
+    return list.map(normalise).filter(Boolean);
+  }
+
+  function normalise(e){
+    if (!e || typeof e !== "object") return null;
+    const text = typeof e.text === "string" ? e.text.slice(0, MAX_LEN) : "";
+    const date = typeof e.date === "string" && !isNaN(Date.parse(e.date)) ? e.date : null;
+    if (!date) return null;
+    if (!text && !e.mood) return null;
+    const out = {
+      id: typeof e.id === "string" && e.id ? e.id : makeId(),
+      date: date,
+      mood: typeof e.mood === "string" ? e.mood : null,
+      text: text
+    };
+    // entries planted by him carry a name; keep it through save/backup/restore
+    if (typeof e.from === "string" && e.from) out.from = e.from.slice(0, 40);
+    // the deeper layers — all optional, all added later, never required
+    DEEP.forEach(function(q){
+      if (typeof e[q.key] === "string" && e[q.key].trim()) out[q.key] = e[q.key].slice(0, MAX_LEN);
+    });
+    return out;
+  }
+
+  function isDeep(e){
+    return DEEP.some(function(q){ return e[q.key]; });
+  }
+
+  function mergeEntries(a, b){
+    const seen = new Map();
+    const key = (e) => e.id;
+    const fuzzy = new Set();
+    [].concat(a, b).forEach(function(e){
+      const f = e.date.slice(0,19) + "|" + e.text;
+      if (seen.has(key(e))) return;
+      if (fuzzy.has(f)) return;           // same moment saved under two ids
+      fuzzy.add(f);
+      seen.set(key(e), e);
+    });
+    return Array.from(seen.values()).sort(function(x,y){
+      return Date.parse(x.date) - Date.parse(y.date);
+    });
+  }
+
+  async function loadAll(){
+    let local = parseEntries(lsGet(LS_ENTRIES));
+    const legacy = parseEntries(lsGet(LEGACY_KEY));
+    let host = [];
+    if (hostStore){
+      try {
+        const r = await hostStore.get(LS_ENTRIES);
+        host = parseEntries(r && r.value);
+        if (!host.length){
+          const r2 = await hostStore.get(LEGACY_KEY);
+          host = parseEntries(r2 && r2.value);
+        }
+      } catch(e){ /* not available — fine */ }
+    }
+    const all = mergeEntries(mergeEntries(local, legacy), host);
+    // Write the merged set straight back so the migration is one-time.
+    if (all.length !== local.length) persist(all);
+    return all;
+  }
+
+  function persist(list){
+    const payload = JSON.stringify(list || entries);
+    const ok = lsSet(LS_ENTRIES, payload);
+    storageBroken = !ok;
+    if (hostStore){
+      try { Promise.resolve(hostStore.set(LS_ENTRIES, payload)).catch(function(){}); } catch(e){}
+    }
+    return ok;
+  }
+
+  // Planted once, on her very first visit. Never again — not after she
+  // removes it, and not on a phone that already has entries on it.
+  function seedFirstBloom(list){
+    if (!FIRST_BLOOM || !FIRST_BLOOM.text) return list;
+    if (lsGet(LS_SEEDED)) return list;
+    lsSet(LS_SEEDED, "1");
+    if (list.length) return list;               // restored from a backup — leave it be
+    const seed = normalise({
+      id: "first-bloom",
+      date: new Date().toISOString(),
+      mood: FIRST_BLOOM.mood,
+      text: FIRST_BLOOM.text,
+      from: FIRST_BLOOM.from
+    });
+    if (!seed) return list;
+    const next = [seed];
+    persist(next);
+    return next;
+  }
+
+  /* ------------------------------------------------------------ helpers */
+  function makeId(){
+    return "b" + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+  }
+  function hashCode(str){
+    let h = 0;
+    for (let i=0;i<str.length;i++){ h = (h*31 + str.charCodeAt(i)) | 0; }
+    return Math.abs(h);
+  }
+  function dayIndex(date){
+    return Math.floor((date - new Date(date.getFullYear(),0,0)) / 86400000) + date.getFullYear()*7;
+  }
+  function moodById(id){
+    for (let i=0;i<MOODS.length;i++){ if (MOODS[i].id === id) return MOODS[i]; }
+    return null;
+  }
+  function isDark(){
+    const attr = document.documentElement.getAttribute("data-theme");
+    if (attr === "dark") return true;
+    if (attr === "light") return false;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function moodColor(m){
+    if (!m) return isDark() ? NEUTRAL.d : NEUTRAL.c;
+    return isDark() ? m.d : m.c;
+  }
+  function fmtDate(iso, withYear){
+    const d = new Date(iso);
+    const opts = { weekday:"long", month:"long", day:"numeric" };
+    if (withYear) opts.year = "numeric";
+    return d.toLocaleDateString(undefined, opts);
+  }
+  function daysAgo(iso){
+    const then = new Date(iso);
+    const a = new Date(then.getFullYear(), then.getMonth(), then.getDate());
+    const now = new Date();
+    const b = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return Math.round((b - a) / 86400000);
+  }
+  function relative(iso){
+    const n = daysAgo(iso);
+    if (n <= 0) return "earlier today";
+    if (n === 1) return "yesterday";
+    if (n < 7)  return n + " days ago";
+    if (n < 14) return "a week ago";
+    if (n < 31) return Math.round(n/7) + " weeks ago";
+    if (n < 45) return "a month ago";
+    if (n < 365) return Math.round(n/30) + " months ago";
+    if (n < 550) return "a year ago";
+    return Math.round(n/365) + " years ago";
+  }
+  function say(msg){ $("live").textContent = msg; }
+
+  /* ------------------------------------------------------------ theme + hour */
+  function applyTheme(){
+    const pref = lsGet(LS_THEME);
+    if (pref === "dark" || pref === "light"){
+      document.documentElement.setAttribute("data-theme", pref);
+    }
+    // "auto" leaves the attribute alone so the viewer's own toggle still wins.
+  }
+  function applyPhase(){
+    const h = new Date().getHours();
+    const phase = h < 5 ? "night" : h < 9 ? "dawn" : h < 16 ? "day" : h < 20 ? "dusk" : "night";
+    document.documentElement.setAttribute("data-phase", phase);
+    return phase;
+  }
+  function greetingFor(h){
+    if (h < 5)  return "You're up late";
+    if (h < 12) return "Good morning";
+    if (h < 17) return "Good afternoon";
+    if (h < 22) return "Good evening";
+    return "Winding down";
+  }
+
+  /* ------------------------------------------------------------ blooms */
+  // A bloom's colour is its mood, its size follows how much she wrote,
+  // and a mood saved without words is a bud — closed, but still planted.
+  function bloomSVG(entry, opts){
+    const m = moodById(entry.mood);
+    const col = moodColor(m);
+    const seed = hashCode(entry.id);
+    const bud = entry.text.length === 0;
+    const scale = bud ? .74 : Math.min(1.12, .84 + Math.min(entry.text.length, 320) / 1150);
+    const rot = (seed % 24) - 12;
+    const stem = 12 + (seed % 9);
+    const bend = ((seed >> 3) % 7) - 3;
+    const w = 34, h = 30 + stem;
+    const cy = 15;
+    const label = opts && opts.label ? opts.label : "";
+
+    let petals = "";
+    if (bud){
+      petals =
+        '<ellipse cx="0" cy="-1" rx="5.4" ry="7.6" fill="'+col+'" opacity=".92"/>' +
+        '<path d="M-5 2 Q0 8 5 2" fill="none" stroke="'+col+'" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>';
+    } else if (isDeep(entry)){
+      // a moment she went deeper on opens fuller — two layers of petals
+      for (let i=0;i<8;i++){
+        petals += '<ellipse cx="0" cy="-8.4" rx="4.2" ry="8" fill="'+col+'" opacity=".5" transform="rotate('+(i*45+22)+')"/>';
+      }
+      for (let i=0;i<8;i++){
+        petals += '<ellipse cx="0" cy="-7" rx="4.4" ry="7.2" fill="'+col+'" opacity=".78" transform="rotate('+(i*45)+')"/>';
+      }
+    } else {
+      for (let i=0;i<6;i++){
+        petals += '<ellipse cx="0" cy="-7.4" rx="4.6" ry="7.6" fill="'+col+'" opacity=".72" transform="rotate('+(i*60)+')"/>';
+      }
+    }
+    if (!bud){
+      petals += '<circle cx="0" cy="0" r="3.5" fill="'+col+'" opacity=".95"/>';
+      petals += entry.from
+        ? '<circle cx="0" cy="0" r="2" fill="var(--gold)"/>'
+        : '<circle cx="0" cy="0" r="1.6" fill="var(--surface)" opacity=".85"/>';
+    }
+
+    return '<svg viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" role="img" aria-label="'+label+'">' +
+      '<path d="M'+(w/2)+' '+(cy+8)+' C '+(w/2)+' '+(cy+18)+', '+(w/2+bend)+' '+(h-8)+', '+(w/2)+' '+h+'" ' +
+        'fill="none" stroke="var(--stem)" stroke-width="1.4" stroke-linecap="round"/>' +
+      '<g transform="translate('+(w/2)+' '+cy+') rotate('+rot+') scale('+scale.toFixed(3)+')">' + petals + '</g>' +
+    '</svg>';
+  }
+
+  /* ------------------------------------------------------------ today view */
+  function pickAffirmation(offset){
+    const i = (dayIndex(new Date()) + (offset||0)) % AFFIRMATIONS.length;
+    return AFFIRMATIONS[i];
+  }
+  let affOffset = 0;
+  function renderAffirmation(){
+    $("affirmation").textContent = pickAffirmation(affOffset);
+  }
+
+  let promptOffset = 0;
+  function renderPrompt(){
+    const m = moodById(selectedMood);
+    const set = (m && m.soft) ? SOFT_PROMPTS : PROMPTS;
+    const p = set[(dayIndex(new Date()) + promptOffset) % set.length];
+    $("promptText").textContent = p.q;
+    $("promptSub").textContent = p.s;
+    const ta = $("entryText");
+    ta.placeholder = (m && m.soft) ? "It's fine to keep this short…" : "Today, something good was…";
+  }
+
+  function renderHeader(){
+    const now = new Date();
+    applyPhase();
+    $("greeting").textContent = greetingFor(now.getHours());
+    $("dateline").textContent = now.toLocaleDateString(undefined, { weekday:"long", month:"long", day:"numeric" });
+  }
+
+  // A different note every day, in order, looping. Dismissing one only
+  // hides it for that day — tomorrow's is a new note. Off for good lives
+  // in Settings, so the X never has to mean "never again".
+  function renderNote(){
+    const card = $("noteCard");
+    if (!NOTES_FROM_ME.length || lsGet(LS_NOTESOFF) === "1"){ card.hidden = true; return; }
+    const di = dayIndex(new Date());
+    if (lsGet(LS_NOTEDAY) === String(di)){ card.hidden = true; return; }
+    card.hidden = false;
+    if (FIRST_BLOOM && FIRST_BLOOM.from) $("noteFrom").textContent = "From " + FIRST_BLOOM.from;
+    $("noteText").textContent = NOTES_FROM_ME[di % NOTES_FROM_ME.length];
+  }
+
+  // One chip set, used on Today, in the before-saving nudge, and when she
+  // changes a feeling in the garden. `onPick` gets the new value (or null
+  // when she taps the one already chosen).
+  function fillChips(wrap, current, onPick){
+    wrap.textContent = "";
+    MOODS.forEach(function(m){
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "chip";
+      b.style.setProperty("--dot", moodColor(m));
+      b.setAttribute("aria-pressed", current === m.id ? "true" : "false");
+      const dot = document.createElement("span");
+      dot.className = "dot";
+      dot.setAttribute("aria-hidden", "true");
+      b.appendChild(dot);
+      b.appendChild(document.createTextNode(m.name));
+      b.addEventListener("click", function(){
+        onPick(current === m.id ? null : m.id);
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  function renderChips(){
+    fillChips($("moodChips"), selectedMood, function(next){
+      selectedMood = next;
+      renderChips();
+      renderPrompt();
+      updateSaveBtn();
+      saveDraft();
+    });
+  }
+
+  function updateSaveBtn(){
+    const text = $("entryText").value.trim();
+    $("saveBtn").disabled = !text && !selectedMood;
+    $("saveBtn").textContent = (!text && selectedMood) ? "Save just how I'm feeling" : "Save this moment";
+    const c = $("counter");
+    const n = $("entryText").value.length;
+    if (n > MAX_LEN - 400){
+      c.textContent = (MAX_LEN - n) + " left";
+      c.className = "counter show" + (n >= MAX_LEN ? " over" : "");
+    } else {
+      c.className = "counter";
+      c.textContent = "";
+    }
+  }
+
+  function saveDraft(){
+    lsSet(LS_DRAFT, JSON.stringify({ text: $("entryText").value, mood: selectedMood }));
+  }
+  function restoreDraft(){
+    const raw = lsGet(LS_DRAFT);
+    if (!raw) return;
+    try {
+      const d = JSON.parse(raw);
+      if (d && typeof d.text === "string") $("entryText").value = d.text;
+      if (d && typeof d.mood === "string") selectedMood = d.mood;
+    } catch(e){}
+  }
+
+  function flash(msg, bad){
+    const el = $("saveState");
+    el.textContent = msg;
+    el.className = "save-state show" + (bad ? " bad" : "");
+    say(msg);
+    window.clearTimeout(flash._t);
+    flash._t = window.setTimeout(function(){ el.className = "save-state" + (bad ? " bad" : ""); }, bad ? 9000 : 3400);
+  }
+
+  // Re-reading is the whole point of keeping a journal, so surface one.
+  function renderEcho(){
+    const host = $("echoWrap");
+    host.textContent = "";
+    const pool = entries.filter(function(e){ return e.text && daysAgo(e.date) >= 7; });
+    if (!pool.length) return;
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+
+    const box = document.createElement("div");
+    box.className = "echo";
+
+    const head = document.createElement("div");
+    head.className = "echo-head";
+    const lab = document.createElement("span");
+    lab.className = "label";
+    lab.textContent = "From your garden";
+    const again = document.createElement("button");
+    again.className = "shuffle";
+    again.setAttribute("aria-label", "Show a different past moment");
+    again.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-13.7-5.4L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 13.7 5.4L20 16"/><path d="M20 20v-4h-4"/></svg>';
+    again.addEventListener("click", renderEcho);
+    head.appendChild(lab);
+    if (pool.length > 1) head.appendChild(again);
+
+    const q = document.createElement("blockquote");
+    q.textContent = pick.text;
+
+    const when = document.createElement("p");
+    when.className = "when";
+    const m = moodById(pick.mood);
+    when.textContent = relative(pick.date) + (m ? " · feeling " + m.name.toLowerCase() : "");
+
+    box.appendChild(head);
+    box.appendChild(q);
+    box.appendChild(when);
+    host.appendChild(box);
+  }
+
+  /* ------------------------------------------------------------ garden view */
+  function renderGarden(animate){
+    const host = $("months");
+    const empty = $("empty");
+    const count = $("gardenCount");
+    host.textContent = "";
+
+    if (!entries.length){
+      empty.hidden = false;
+      count.textContent = "Nothing here yet";
+      return;
+    }
+    empty.hidden = true;
+
+    const days = new Set(entries.map(function(e){ return e.date.slice(0,10); }));
+    const first = new Date(entries[0].date);
+    const since = first.toLocaleDateString(undefined, { month:"long", year:"numeric" });
+    count.textContent = entries.length + (entries.length === 1 ? " moment" : " moments") +
+      " across " + days.size + (days.size === 1 ? " day" : " days") + " · since " + since;
+
+    // newest month first; within a month, oldest bloom first (left to right)
+    const groups = new Map();
+    entries.forEach(function(e){
+      const d = new Date(e.date);
+      const k = d.getFullYear() + "-" + String(d.getMonth()).padStart(2,"0");
+      if (!groups.has(k)) groups.set(k, { date:d, items:[] });
+      groups.get(k).items.push(e);
+    });
+    const keys = Array.from(groups.keys()).sort().reverse();
+    const thisYear = new Date().getFullYear();
+    let n = 0;
+
+    keys.forEach(function(k){
+      const g = groups.get(k);
+      const sec = document.createElement("section");
+      sec.className = "month";
+
+      const head = document.createElement("div");
+      head.className = "month-head";
+      const name = document.createElement("span");
+      name.className = "label name";
+      name.textContent = g.date.toLocaleDateString(undefined,
+        g.date.getFullYear() === thisYear ? { month:"long" } : { month:"long", year:"numeric" });
+      const rule = document.createElement("span");
+      rule.className = "rule";
+      const num = document.createElement("span");
+      num.className = "n";
+      num.textContent = g.items.length;
+      head.appendChild(name); head.appendChild(rule); head.appendChild(num);
+
+      const bed = document.createElement("div");
+      bed.className = "bed";
+      g.items.forEach(function(e){
+        const m = moodById(e.mood);
+        const btn = document.createElement("button");
+        btn.className = "bloom" + (animate ? " grow" : "");
+        btn.style.setProperty("--d", Math.min(n, 26) * 26 + "ms");
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-haspopup", "dialog");
+        const summary = (e.from ? "from " + e.from + " — " : "") +
+          (e.text ? e.text.slice(0, 60) : (m ? "feeling " + m.name.toLowerCase() : "a quiet moment"));
+        btn.innerHTML = bloomSVG(e, { label: fmtDate(e.date, false) + " — " + summary });
+        btn.addEventListener("click", function(){ openEntry(e, btn); });
+        bed.appendChild(btn);
+        n++;
+      });
+
+      sec.appendChild(head);
+      sec.appendChild(bed);
+      host.appendChild(sec);
+    });
+  }
+
+  /* ------------------------------------------------------------ sheets */
+  function showSheet(build, returnFocusTo){
+    closeSheet();
+    const scrim = document.createElement("div");
+    scrim.className = "scrim";
+    const sheet = document.createElement("div");
+    sheet.className = "sheet";
+    sheet.setAttribute("role", "dialog");
+    sheet.setAttribute("aria-modal", "true");
+    sheet.tabIndex = -1;
+    const grip = document.createElement("div");
+    grip.className = "grip";
+    grip.setAttribute("aria-hidden", "true");
+    sheet.appendChild(grip);
+
+    build(sheet, close);
+
+    $("sheetHost").appendChild(scrim);
+    $("sheetHost").appendChild(sheet);
+    document.body.style.overflow = "hidden";
+    sheet.focus();
+
+    function onKey(ev){
+      if (ev.key === "Escape"){ ev.preventDefault(); close(); }
+    }
+    scrim.addEventListener("click", close);
+    document.addEventListener("keydown", onKey);
+
+    function close(){
+      document.removeEventListener("keydown", onKey);
+      scrim.remove();
+      sheet.remove();
+      document.body.style.overflow = "";
+      openSheet = null;
+      if (returnFocusTo && document.contains(returnFocusTo)) returnFocusTo.focus();
+    }
+    openSheet = { close: close };
+    return close;
+  }
+  function closeSheet(){ if (openSheet) openSheet.close(); }
+
+  function openEntry(entry, btn){
+    btn.setAttribute("aria-expanded", "true");
+    const close = showSheet(function(sheet, done){
+      const lab = document.createElement("span");
+      lab.className = "label";
+      lab.textContent = relative(entry.date);
+      sheet.appendChild(lab);
+
+      const h = document.createElement("h3");
+      h.textContent = fmtDate(entry.date, new Date(entry.date).getFullYear() !== new Date().getFullYear());
+      sheet.appendChild(h);
+
+      // The feeling is editable here — forgetting to tap one on the day
+      // shouldn't mean a grey flower forever.
+      const moodZone = document.createElement("div");
+      sheet.appendChild(moodZone);
+      let editingMood = false;
+
+      function setMood(next){
+        // a moment with no words is only held together by its feeling
+        if (!next && !entry.text){
+          toast("This one has no words in it, so it needs a feeling to hold on to.");
+          return;
+        }
+        const target = entries.filter(function(e){ return e.id === entry.id; })[0] || entry;
+        const was = target.mood || null;
+        if (was === next){ editingMood = false; drawMood(); return; }
+        target.mood = next;
+        entry.mood = next;
+        if (!persist()){
+          target.mood = was;
+          entry.mood = was;
+          toast("Couldn't save that — storage is blocked.");
+          return;
+        }
+        editingMood = false;
+        drawMood();
+        renderGarden(false);
+        renderEcho();
+        toast(next ? "Changed to " + moodById(next).name.toLowerCase() + "." : "Feeling removed.");
+      }
+
+      function drawMood(){
+        moodZone.textContent = "";
+        const cur = moodById(entry.mood);
+
+        const trigger = document.createElement("button");
+        trigger.type = "button";
+        trigger.setAttribute("aria-expanded", editingMood ? "true" : "false");
+        if (cur){
+          trigger.className = "mood-pill";
+          trigger.style.setProperty("--dot", moodColor(cur));
+          const dot = document.createElement("span");
+          dot.className = "dot";
+          dot.setAttribute("aria-hidden","true");
+          trigger.appendChild(dot);
+          trigger.appendChild(document.createTextNode(cur.name));
+          const caret = document.createElement("span");
+          caret.className = "caret";
+          caret.setAttribute("aria-hidden","true");
+          caret.textContent = "⌄";
+          trigger.appendChild(caret);
+          trigger.setAttribute("aria-label", "Feeling: " + cur.name + ". Change it.");
+        } else {
+          trigger.className = "add-mood";
+          const ghost = document.createElement("span");
+          ghost.className = "ghost";
+          ghost.setAttribute("aria-hidden","true");
+          trigger.appendChild(ghost);
+          trigger.appendChild(document.createTextNode("Add how you were feeling"));
+        }
+        trigger.addEventListener("click", function(){
+          editingMood = !editingMood;
+          drawMood();
+        });
+        moodZone.appendChild(trigger);
+
+        if (!editingMood) return;
+
+        const edit = document.createElement("div");
+        edit.className = "mood-edit";
+        const chips = document.createElement("div");
+        chips.className = "chips";
+        fillChips(chips, entry.mood, setMood);
+        edit.appendChild(chips);
+        const hint = document.createElement("p");
+        hint.className = "sub";
+        hint.textContent = entry.text
+          ? "Tap the one it was. Tap it again to take it off."
+          : "Pick the one it was.";
+        edit.appendChild(hint);
+        moodZone.appendChild(edit);
+        const first = chips.querySelector("button");
+        if (first) first.focus();
+      }
+      drawMood();
+
+      if (entry.text){
+        const p = document.createElement("p");
+        p.className = "entry-text";
+        p.textContent = entry.text;
+        sheet.appendChild(p);
+      }
+
+      if (entry.from){
+        const by = document.createElement("p");
+        by.className = "by-line";
+        by.textContent = "— " + entry.from;
+        sheet.appendChild(by);
+      }
+
+      DEEP.forEach(function(q){
+        if (!entry[q.key]) return;
+        const block = document.createElement("div");
+        block.className = "deep-block";
+        const lab = document.createElement("span");
+        lab.className = "label";
+        lab.textContent = q.label;
+        const p = document.createElement("p");
+        p.textContent = entry[q.key];
+        block.appendChild(lab);
+        block.appendChild(p);
+        sheet.appendChild(block);
+      });
+
+      if (entry.text){
+        const closer = document.createElement("button");
+        closer.className = "btn quiet look-closer";
+        closer.textContent = isDeep(entry) ? "Add to this" : "Look closer at this";
+        closer.addEventListener("click", function(){
+          done();
+          openDeepen(entry, btn);
+        });
+        sheet.appendChild(closer);
+      }
+
+      const acts = document.createElement("div");
+      acts.className = "sheet-actions";
+      const del = document.createElement("button");
+      del.className = "text-btn danger";
+      del.textContent = "Remove";
+      del.addEventListener("click", function(){
+        removeEntry(entry);
+        done();
+      });
+      const ok = document.createElement("button");
+      ok.className = "text-btn";
+      ok.textContent = "Close";
+      ok.addEventListener("click", function(){ done(); });
+      acts.appendChild(del);
+      acts.appendChild(ok);
+      sheet.appendChild(acts);
+    }, btn);
+
+    // clear the expanded state whichever way it closes
+    const obs = new MutationObserver(function(){
+      if (!openSheet){ btn.setAttribute("aria-expanded","false"); obs.disconnect(); }
+    });
+    obs.observe($("sheetHost"), { childList:true });
+    return close;
+  }
+
+  // Looking closer at a moment she already wrote. One question per screen,
+  // nothing required — she can answer one and leave the rest.
+  function openDeepen(entry, returnFocusTo){
+    let step = 0;
+    const draft = {};
+    DEEP.forEach(function(q){ draft[q.key] = entry[q.key] || ""; });
+
+    showSheet(function(sheet, close){
+      const body = document.createElement("div");
+      sheet.appendChild(body);
+
+      function render(){
+        body.textContent = "";
+
+        const top = document.createElement("div");
+        top.className = "deep-top";
+        const lab = document.createElement("span");
+        lab.className = "label";
+        lab.textContent = "Looking closer";
+        const step_ = document.createElement("span");
+        step_.className = "step-count";
+        step_.textContent = (step + 1) + " of " + DEEP.length;
+        top.appendChild(lab);
+        top.appendChild(step_);
+        body.appendChild(top);
+
+        if (entry.text){
+          const quote = document.createElement("p");
+          quote.className = "deep-quote";
+          quote.textContent = entry.text;
+          body.appendChild(quote);
+        }
+
+        const q = DEEP[step];
+
+        const h = document.createElement("h3");
+        h.className = "deep-q";
+        h.textContent = q.q;
+        body.appendChild(h);
+
+        const s = document.createElement("p");
+        s.className = "sub";
+        s.textContent = q.s;
+        body.appendChild(s);
+
+        const ta = document.createElement("textarea");
+        ta.rows = 4;
+        ta.value = draft[q.key];
+        ta.maxLength = MAX_LEN;
+        ta.setAttribute("aria-label", q.q);
+        ta.placeholder = "Only if you want to…";
+        ta.addEventListener("input", function(){ draft[q.key] = ta.value; });
+        body.appendChild(ta);
+
+        const stack = document.createElement("div");
+        stack.className = "btn-row";
+
+        const next = document.createElement("button");
+        next.className = "btn";
+        next.textContent = (step === DEEP.length - 1) ? "Save" : "Next";
+        next.addEventListener("click", function(){
+          if (step === DEEP.length - 1){ commit(); close(); }
+          else { step++; render(); }
+        });
+        stack.appendChild(next);
+
+        const back = document.createElement("button");
+        back.className = "btn quiet";
+        back.textContent = step === 0 ? "Not now" : "Back";
+        back.addEventListener("click", function(){
+          if (step === 0){ commit(); close(); }   // keep anything already typed
+          else { step--; render(); }
+        });
+        stack.appendChild(back);
+
+        body.appendChild(stack);
+        ta.focus();
+      }
+
+      function commit(){
+        const target = entries.filter(function(e){ return e.id === entry.id; })[0];
+        if (!target) return;
+        let changed = false;
+        DEEP.forEach(function(q){
+          const v = draft[q.key].trim();
+          if (v !== (target[q.key] || "")){
+            changed = true;
+            if (v) target[q.key] = v.slice(0, MAX_LEN);
+            else delete target[q.key];
+          }
+        });
+        if (!changed) return;
+        persist();
+        renderGarden(false);
+        renderEcho();
+        toast("Saved.");
+      }
+
+      render();
+    }, returnFocusTo);
+  }
+
+  function openSettings(){
+    showSheet(function(sheet, done){
+      const h = document.createElement("h3");
+      h.textContent = "Bloom";
+      sheet.appendChild(h);
+
+      const rows = document.createElement("div");
+      rows.className = "rows";
+
+      // theme
+      rows.appendChild(makeRow("Appearance", "Follows your phone unless you choose.", (function(){
+        const seg = document.createElement("div");
+        seg.className = "seg";
+        [["auto","Auto"],["light","Light"],["dark","Dark"]].forEach(function(pair){
+          const b = document.createElement("button");
+          b.textContent = pair[1];
+          const cur = lsGet(LS_THEME) || "auto";
+          b.setAttribute("aria-pressed", cur === pair[0] ? "true" : "false");
+          b.addEventListener("click", function(){
+            if (pair[0] === "auto"){
+              lsDel(LS_THEME);
+              document.documentElement.removeAttribute("data-theme");
+            } else {
+              lsSet(LS_THEME, pair[0]);
+              document.documentElement.setAttribute("data-theme", pair[0]);
+            }
+            Array.prototype.forEach.call(seg.children, function(c){
+              c.setAttribute("aria-pressed", c === b ? "true" : "false");
+            });
+            renderChips();
+            renderGarden(false);
+          });
+          seg.appendChild(b);
+        });
+        return seg;
+      })()));
+
+      // notes from him — the X on the card is only for today; this is forever
+      if (NOTES_FROM_ME.length){
+        const who = (FIRST_BLOOM && FIRST_BLOOM.from) ? "Notes from " + FIRST_BLOOM.from : "Notes from me";
+        rows.appendChild(makeRow(who, "A different one each day, on your Today screen.", (function(){
+          const seg = document.createElement("div");
+          seg.className = "seg";
+          [["on","On"],["off","Off"]].forEach(function(pair){
+            const b = document.createElement("button");
+            b.textContent = pair[1];
+            const cur = lsGet(LS_NOTESOFF) === "1" ? "off" : "on";
+            b.setAttribute("aria-pressed", cur === pair[0] ? "true" : "false");
+            b.addEventListener("click", function(){
+              if (pair[0] === "off") lsSet(LS_NOTESOFF, "1");
+              else { lsDel(LS_NOTESOFF); lsDel(LS_NOTEDAY); }
+              Array.prototype.forEach.call(seg.children, function(c){
+                c.setAttribute("aria-pressed", c === b ? "true" : "false");
+              });
+              renderNote();
+            });
+            seg.appendChild(b);
+          });
+          return seg;
+        })()));
+      }
+
+      // backup
+      rows.appendChild(makeRow("Save a backup", backupSummary(),
+        makeAction("Save", entries.length === 0, doBackup)));
+
+      // restore
+      rows.appendChild(makeRow("Restore a backup", "From a file or pasted text. Adds anything missing — nothing gets overwritten.",
+        makeAction("Restore", false, openRestore)));
+
+      // clear
+      rows.appendChild(makeRow("Delete everything", "Removes every moment on this device. Can't be undone.",
+        makeAction("Delete", entries.length === 0, confirmClear, true)));
+
+      sheet.appendChild(rows);
+
+      const fine = document.createElement("p");
+      fine.className = "fineprint";
+      fine.textContent = "Everything you write stays on this device, in this browser. " +
+        "It never leaves your phone — there's no account and no server. That also means " +
+        "clearing your browser data would clear this too, so a backup now and then is worth it.";
+      sheet.appendChild(fine);
+
+      const close = document.createElement("button");
+      close.className = "btn quiet";
+      close.style.marginTop = "18px";
+      close.textContent = "Done";
+      close.addEventListener("click", function(){ done(); });
+      sheet.appendChild(close);
+    }, $("settingsBtn"));
+  }
+
+  function makeRow(title, desc, control){
+    const row = document.createElement("div");
+    row.className = "row";
+    const lead = document.createElement("div");
+    lead.className = "lead";
+    const t = document.createElement("div");
+    t.className = "t";
+    t.textContent = title;
+    const d = document.createElement("div");
+    d.className = "d";
+    d.textContent = desc;
+    lead.appendChild(t); lead.appendChild(d);
+    row.appendChild(lead);
+    if (control) row.appendChild(control);
+    return row;
+  }
+  function makeAction(label, disabled, fn, danger){
+    const b = document.createElement("button");
+    b.className = "act" + (danger ? " danger" : "");
+    b.textContent = label;
+    b.disabled = !!disabled;
+    if (disabled) b.style.opacity = ".4";
+    b.addEventListener("click", fn);
+    return b;
+  }
+
+  function confirmClear(){
+    showSheet(function(sheet, close){
+      const h = document.createElement("h3");
+      h.textContent = "Delete everything?";
+      sheet.appendChild(h);
+      const p = document.createElement("p");
+      p.className = "fineprint";
+      p.textContent = "All " + entries.length + " moments will be removed from this device. " +
+        "If you haven't saved a backup, this can't be undone.";
+      sheet.appendChild(p);
+
+      const stack = document.createElement("div");
+      stack.className = "btn-row";
+      const no = document.createElement("button");
+      no.className = "btn quiet";
+      no.textContent = "Keep them";
+      no.addEventListener("click", function(){ close(); });
+      const yes = document.createElement("button");
+      yes.className = "btn";
+      yes.style.background = "var(--danger)";
+      yes.style.color = "#fff";
+      yes.textContent = "Yes, delete everything";
+      yes.addEventListener("click", function(){
+        entries = [];
+        persist();
+        renderGarden(false);
+        renderEcho();
+        close();
+        toast("Your garden is empty.");
+        say("All entries deleted.");
+      });
+      stack.appendChild(no);
+      stack.appendChild(yes);
+      sheet.appendChild(stack);
+      no.focus();
+    }, $("settingsBtn"));
+  }
+
+  /* ------------------------------------------------------------ backup */
+  function backupBlob(){
+    return JSON.stringify({
+      app: "bloom",
+      version: 2,
+      exportedAt: new Date().toISOString(),
+      entries: entries
+    }, null, 2);
+  }
+  function backupName(){
+    const d = new Date();
+    return "bloom-backup-" + d.getFullYear() + "-" +
+      String(d.getMonth()+1).padStart(2,"0") + "-" +
+      String(d.getDate()).padStart(2,"0") + ".json";
+  }
+
+  // A download can be blocked without throwing, so we never claim success.
+  // We try to save a file, then always offer copy-and-paste as a sure thing.
+  function markBackedUp(){
+    lsSet(LS_BACKUP, JSON.stringify({ at: new Date().toISOString(), count: entries.length }));
+    lsDel(LS_NUDGED);
+    renderBackupNudge();
+  }
+
+  async function doBackup(){
+    const data = backupBlob();
+    const name = backupName();
+    markBackedUp();
+
+    try {
+      const blob = new Blob([data], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = name;
+      a.rel = "noopener";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+    } catch(e){ /* offer the copy path below regardless */ }
+
+    showSheet(function(sheet, close){
+      const h = document.createElement("h3");
+      h.textContent = "Your backup";
+      sheet.appendChild(h);
+
+      const p = document.createElement("p");
+      p.className = "fineprint";
+      p.textContent = "A file called " + name + " may have saved to your downloads. " +
+        "If nothing happened, copy the text below and paste it somewhere safe — " +
+        "a note to yourself, or an email. That text is your backup; " +
+        "“Restore a backup” can read it back later.";
+      sheet.appendChild(p);
+
+      const box = document.createElement("textarea");
+      box.readOnly = true;
+      box.className = "backup-box";
+      box.value = data;
+      box.addEventListener("focus", function(){ box.select(); });
+      sheet.appendChild(box);
+
+      const stack = document.createElement("div");
+      stack.className = "btn-row";
+
+      const copy = document.createElement("button");
+      copy.className = "btn";
+      copy.textContent = "Copy my backup";
+      copy.addEventListener("click", async function(){
+        let ok = false;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText){
+            await navigator.clipboard.writeText(data);
+            ok = true;
+          }
+        } catch(e){ ok = false; }
+        if (!ok){
+          try { box.select(); ok = document.execCommand("copy"); } catch(e){ ok = false; }
+        }
+        copy.textContent = ok ? "Copied ✓" : "Press and hold the text to copy";
+        if (ok) say("Backup copied.");
+      });
+
+      const done = document.createElement("button");
+      done.className = "btn quiet";
+      done.textContent = "Done";
+      done.addEventListener("click", function(){ close(); });
+
+      stack.appendChild(copy);
+      stack.appendChild(done);
+      sheet.appendChild(stack);
+    }, $("settingsBtn"));
+  }
+
+  function openRestore(){
+    showSheet(function(sheet, close){
+      const h = document.createElement("h3");
+      h.textContent = "Restore a backup";
+      sheet.appendChild(h);
+
+      const p = document.createElement("p");
+      p.className = "fineprint";
+      p.textContent = "Paste your backup text below, or choose a backup file. " +
+        "Anything already here is kept — this only adds what's missing.";
+      sheet.appendChild(p);
+
+      const box = document.createElement("textarea");
+      box.className = "backup-box";
+      box.placeholder = "Paste your backup here…";
+      sheet.appendChild(box);
+
+      const fileInput = document.createElement("input");
+      fileInput.type = "file";
+      fileInput.accept = "application/json,.json,text/plain";
+      fileInput.className = "sr";
+      fileInput.addEventListener("change", function(){
+        const f = fileInput.files && fileInput.files[0];
+        if (f) restoreFromFile(f, close);
+      });
+      sheet.appendChild(fileInput);
+
+      const stack = document.createElement("div");
+      stack.className = "btn-row";
+
+      const go = document.createElement("button");
+      go.className = "btn";
+      go.textContent = "Restore from pasted text";
+      go.addEventListener("click", function(){
+        if (!box.value.trim()){ box.focus(); return; }
+        applyRestore(parseEntries(box.value), close);
+      });
+
+      const pick = document.createElement("button");
+      pick.className = "btn quiet";
+      pick.textContent = "Choose a file instead";
+      pick.addEventListener("click", function(){ fileInput.click(); });
+
+      const cancel = document.createElement("button");
+      cancel.className = "btn quiet";
+      cancel.textContent = "Cancel";
+      cancel.addEventListener("click", function(){ close(); });
+
+      stack.appendChild(go);
+      stack.appendChild(pick);
+      stack.appendChild(cancel);
+      sheet.appendChild(stack);
+    }, $("settingsBtn"));
+  }
+
+  function applyRestore(incoming, done){
+    if (!incoming.length){
+      toast("That didn't look like a Bloom backup.");
+      return;
+    }
+    const before = entries.length;
+    entries = mergeEntries(entries, incoming);
+    persist();
+    renderGarden(false);
+    renderEcho();
+    const added = entries.length - before;
+    renderBackupNudge();
+    if (done) done();
+    toast(added === 0 ? "Everything in that backup was already here."
+                      : "Restored " + added + (added === 1 ? " moment." : " moments."));
+    say("Restore complete.");
+  }
+
+  function restoreFromFile(file, done){
+    const reader = new FileReader();
+    reader.onload = function(){
+      applyRestore(parseEntries(String(reader.result)), done);
+    };
+    reader.onerror = function(){ toast("Couldn't read that file."); };
+    reader.readAsText(file);
+  }
+
+  /* ------------------------------------------------------------ toast + undo */
+  function toast(msg, actionLabel, action){
+    window.clearTimeout(toastTimer);
+    $("toastHost").textContent = "";
+    const t = document.createElement("div");
+    t.className = "toast";
+    const span = document.createElement("span");
+    span.textContent = msg;
+    t.appendChild(span);
+    if (actionLabel){
+      const b = document.createElement("button");
+      b.textContent = actionLabel;
+      b.addEventListener("click", function(){
+        window.clearTimeout(toastTimer);
+        t.remove();
+        action();
+      });
+      t.appendChild(b);
+    }
+    $("toastHost").appendChild(t);
+    toastTimer = window.setTimeout(function(){ t.remove(); }, actionLabel ? 8000 : 3600);
+    say(msg);
+  }
+
+  function removeEntry(entry){
+    undoBuffer = entry;
+    entries = entries.filter(function(e){ return e.id !== entry.id; });
+    persist();
+    renderGarden(false);
+    renderEcho();
+    toast("Removed.", "Undo", function(){
+      if (!undoBuffer) return;
+      entries = mergeEntries(entries, [undoBuffer]);
+      undoBuffer = null;
+      persist();
+      renderGarden(false);
+      renderEcho();
+      toast("Put back.");
+    });
+  }
+
+  /* ------------------------------------------------------------ tabs */
+  function switchView(name, focus){
+    ["today","garden"].forEach(function(v){
+      const tab = $("tab-" + v);
+      const panel = $("view-" + v);
+      const on = v === name;
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+      tab.tabIndex = on ? 0 : -1;
+      panel.hidden = !on;
+    });
+    if (name === "garden") renderGarden(true);
+    if (name === "today") renderEcho();
+    if (focus) $("tab-" + name).focus();
+    window.scrollTo(0, 0);
+  }
+
+  /* ------------------------------------------------------------ save */
+  function saveMoment(){
+    const text = $("entryText").value.trim();
+    if (!text && !selectedMood) return;
+    // A moment saved with no feeling grows a grey flower, and she usually
+    // just forgot to tap one. So ask once, here — never afterwards.
+    if (text && !selectedMood){ askMood(text); return; }
+    commitMoment(text, selectedMood);
+  }
+
+  // Asked only at the moment of saving, and always answerable with "no".
+  function askMood(text){
+    let pick = null;
+    showSheet(function(sheet, close){
+      const lab = document.createElement("span");
+      lab.className = "label";
+      lab.textContent = "One more thing";
+      sheet.appendChild(lab);
+
+      const h = document.createElement("h3");
+      h.textContent = "How were you feeling?";
+      sheet.appendChild(h);
+
+      const s = document.createElement("p");
+      s.className = "sub";
+      s.style.marginTop = "6px";
+      s.textContent = "It's what gives the flower its colour. Skip it if you'd rather — you can add one later.";
+      sheet.appendChild(s);
+
+      const chips = document.createElement("div");
+      chips.className = "chips";
+      chips.style.marginTop = "16px";
+      sheet.appendChild(chips);
+
+      const stack = document.createElement("div");
+      stack.className = "btn-row";
+      const go = document.createElement("button");
+      go.className = "btn";
+      const back = document.createElement("button");
+      back.className = "btn quiet";
+      back.textContent = "Keep writing";
+      back.addEventListener("click", function(){ close(); });
+      stack.appendChild(go);
+      stack.appendChild(back);
+      sheet.appendChild(stack);
+
+      function draw(){
+        fillChips(chips, pick, function(next){ pick = next; draw(); });
+        go.textContent = pick ? "Save this moment" : "Save without a feeling";
+      }
+      draw();
+
+      go.addEventListener("click", function(){
+        close();
+        selectedMood = pick;
+        commitMoment(text, pick);
+      });
+    }, $("saveBtn"));
+  }
+
+  function commitMoment(text, mood){
+    const entry = { id: makeId(), date: new Date().toISOString(), mood: mood, text: text };
+    const next = mergeEntries(entries, [entry]);
+    const ok = persist(next);
+
+    if (!ok){
+      flash("Couldn't save — your browser is blocking storage. Try Safari, or turn off Private Browsing.", true);
+      return;
+    }
+    entries = next;
+    lsDel(LS_DRAFT);
+    $("entryText").value = "";
+    $("entryText").blur();        // let the keyboard drop so she can see what's next
+    selectedMood = null;
+    renderChips();
+    renderPrompt();
+    updateSaveBtn();
+    renderGarden(false);
+    renderEcho();
+    renderBackupNudge();
+    flash(text ? "Saved. One more thing in your garden." : "Saved. Just how you're feeling is enough.");
+    offerDeepen(text ? entry : null);
+  }
+
+  // Offered once, right after saving, and only for a moment with words in it.
+  // No badge, no reminder, no second ask.
+  function offerDeepen(entry){
+    const host = $("afterSave");
+    host.textContent = "";
+    if (!entry) return;
+    const b = document.createElement("button");
+    b.className = "btn quiet look-closer";
+    b.textContent = "Want to look closer at this?";
+    b.addEventListener("click", function(){
+      host.textContent = "";
+      openDeepen(entry, null);
+    });
+    host.appendChild(b);
+
+    // It lands below the fold on a phone, so it was easy to never know it
+    // existed. Bring it to her instead of hoping she scrolls.
+    window.requestAnimationFrame(function(){
+      window.setTimeout(function(){
+        try {
+          b.scrollIntoView({ block: "center", behavior: reducedMotion() ? "auto" : "smooth" });
+        } catch(e){
+          b.scrollIntoView();
+        }
+      }, 120);   // after the keyboard has finished retracting
+    });
+  }
+
+  function reducedMotion(){
+    return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
+
+  /* ------------------------------------------------------------ keeping it safe
+     Browsers are allowed to clear a site's storage when space runs short or
+     the site sits unused. Asking for "persistent" storage tells them not to.
+     Safari grants it to pages added to the Home Screen; everywhere else this
+     quietly does nothing, which is fine — it can only help. */
+  function askForDurableStorage(){
+    try {
+      const s = navigator.storage;
+      if (!s || typeof s.persist !== "function") return;
+      Promise.resolve(s.persisted ? s.persisted() : false).then(function(already){
+        if (already) return;
+        return s.persist();
+      }).catch(function(){});
+    } catch(e){}
+  }
+
+  function lastBackup(){
+    try {
+      const b = JSON.parse(lsGet(LS_BACKUP) || "null");
+      if (b && typeof b.count === "number") return b;
+    } catch(e){}
+    return null;
+  }
+
+  function backupSummary(){
+    const b = lastBackup();
+    if (!entries.length) return "Nothing to back up yet.";
+    if (!b) return "A copy of all " + entries.length + " moments. You haven't taken one yet.";
+    const behind = entries.length - b.count;
+    return "Last copy " + relative(b.at).toLowerCase() +
+      (behind > 0 ? " — " + behind + (behind === 1 ? " moment" : " moments") + " since." : " — up to date.");
+  }
+
+  // A quiet offer, not a reminder: only once she's well ahead of her last
+  // copy, and never again for a fortnight if she waves it away.
+  function renderBackupNudge(){
+    const card = $("backupNudge");
+    const b = lastBackup();
+    const behind = entries.length - (b ? b.count : 0);
+    const waved = Number(lsGet(LS_NUDGED) || 0);
+    const due = !waved || (dayIndex(new Date()) - waved) >= 14;
+
+    if (behind < 10 || !due){ card.hidden = true; return; }
+    card.hidden = false;
+    $("backupNudgeText").textContent = b
+      ? "You've grown " + behind + " moments since your last copy. Worth saving another?"
+      : "There are " + entries.length + " moments in your garden now. Worth keeping a copy somewhere safe?";
+  }
+
+  /* ------------------------------------------------------------ install hint */
+  function maybeShowHint(){
+    if (lsGet(LS_HINT)) return;
+    const standalone = window.navigator.standalone === true ||
+      (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+    const iOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
+    if (standalone || !iOS) return;
+    $("installHint").hidden = false;
+  }
+
+  /* ------------------------------------------------------------ wiring */
+  function wire(){
+    ["today","garden"].forEach(function(v){
+      $("tab-" + v).addEventListener("click", function(){ switchView(v); });
+    });
+    $("tab-today").parentNode.addEventListener("keydown", function(ev){
+      if (ev.key !== "ArrowLeft" && ev.key !== "ArrowRight") return;
+      ev.preventDefault();
+      const cur = $("tab-today").getAttribute("aria-selected") === "true" ? "today" : "garden";
+      switchView(cur === "today" ? "garden" : "today", true);
+    });
+
+    $("goToday").addEventListener("click", function(){ switchView("today"); $("entryText").focus(); });
+    $("settingsBtn").addEventListener("click", openSettings);
+    $("shuffleBtn").addEventListener("click", function(){ affOffset++; renderAffirmation(); });
+    $("promptShuffle").addEventListener("click", function(){ promptOffset++; renderPrompt(); });
+    $("saveBtn").addEventListener("click", saveMoment);
+    $("hintClose").addEventListener("click", function(){
+      $("installHint").hidden = true;
+      lsSet(LS_HINT, "1");
+    });
+    // hides today's note only — a new one arrives tomorrow. "Never" is in Settings.
+    $("noteClose").addEventListener("click", function(){
+      $("noteCard").hidden = true;
+      lsSet(LS_NOTEDAY, String(dayIndex(new Date())));
+    });
+    $("backupNudgeGo").addEventListener("click", doBackup);
+    $("backupNudgeClose").addEventListener("click", function(){
+      $("backupNudge").hidden = true;
+      lsSet(LS_NUDGED, String(dayIndex(new Date())));
+    });
+
+    const ta = $("entryText");
+    ta.addEventListener("input", function(){
+      updateSaveBtn();
+      saveDraft();
+      $("afterSave").textContent = "";   // she's moved on; drop the offer
+    });
+    ta.addEventListener("keydown", function(ev){
+      if ((ev.metaKey || ev.ctrlKey) && ev.key === "Enter"){ ev.preventDefault(); saveMoment(); }
+    });
+
+    // colours are theme-dependent, so redraw if the theme flips underneath us
+    if (window.matchMedia){
+      const mq = window.matchMedia("(prefers-color-scheme: dark)");
+      const onChange = function(){ renderChips(); renderGarden(false); };
+      if (mq.addEventListener) mq.addEventListener("change", onChange);
+      else if (mq.addListener) mq.addListener(onChange);
+    }
+    new MutationObserver(function(){ renderChips(); renderGarden(false); })
+      .observe(document.documentElement, { attributes:true, attributeFilter:["data-theme"] });
+
+    // the hour moves; so should the light
+    window.setInterval(function(){
+      applyPhase();
+      $("greeting").textContent = greetingFor(new Date().getHours());
+    }, 5 * 60 * 1000);
+
+    document.addEventListener("visibilitychange", function(){
+      if (!document.hidden){ renderHeader(); renderAffirmation(); renderNote(); }
+    });
+  }
+
+  /* ------------------------------------------------------------ init */
+  async function init(){
+    askForDurableStorage();
+    applyTheme();
+    renderHeader();
+    renderAffirmation();
+    renderNote();
+    restoreDraft();
+    renderChips();
+    renderPrompt();
+    updateSaveBtn();
+    wire();
+    maybeShowHint();
+
+    entries = seedFirstBloom(await loadAll());
+    renderGarden(false);
+    renderEcho();
+    renderBackupNudge();
+
+    if (!lsSet("bloom.probe", "1")){
+      flash("Heads up — this browser isn't letting Bloom save anything. Private Browsing usually causes this.", true);
+    } else {
+      lsDel("bloom.probe");
+    }
+  }
+
+  init();
+})();
+</script>
