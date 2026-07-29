@@ -44,6 +44,12 @@
   --amb-b: #DCE7CB;
   --amb-strength: .55;
 
+  /* seasonal light: --sea washes the ground, --sea-ink colours the
+     things that drift through it (leaves, snow) so they stay visible */
+  --sea:      #CFE3BE;
+  --sea-ink:  #7FA86A;
+  --sea-strength: .16;
+
   --r-lg: 22px;
   --r-md: 15px;
   --r-sm: 11px;
@@ -54,6 +60,13 @@
 [data-phase="day"]   { --amb-a:#E3E9C9; --amb-b:#D9E6DE; }
 [data-phase="dusk"]  { --amb-a:#F1C7C2; --amb-b:#E0D3E2; }
 [data-phase="night"] { --amb-a:#CDD4EC; --amb-b:#D8DEE6; --amb-strength:.5; }
+
+/* The same garden, later in the year. Only the greens and a low wash of
+   light move — a bloom saved in June looks exactly the same in December. */
+[data-season="spring"]{ --stem:#8FBF7E; --sea:#CFE3BE; --sea-ink:#7FA86A; }
+[data-season="summer"]{ --stem:#86AE78; --sea:#EFDCA8; --sea-ink:#D9B45C; }
+[data-season="autumn"]{ --stem:#AE9868; --sea:#E8C48F; --sea-ink:#C98A4B; }
+[data-season="winter"]{ --stem:#A6B1AA; --sea:#CBD8E6; --sea-ink:#9FB8D0; --sea-strength:.13; }
 
 /* Dark isn't the light palette turned down — it's the same garden after
    sunset. Warm aubergine night rather than dark green, so the rose and
@@ -84,6 +97,11 @@
   [data-phase="day"]   { --amb-a:#4A4438; --amb-b:#33404A; }
   [data-phase="dusk"]  { --amb-a:#6B3145; --amb-b:#3A2B52; }
   [data-phase="night"] { --amb-a:#2F3468; --amb-b:#432A4A; }
+
+  [data-season="spring"]{ --stem:#6F9268; --sea:#26382A; --sea-ink:#8FBF7E; --sea-strength:.5; }
+  [data-season="summer"]{ --stem:#5E8560; --sea:#3B3320; --sea-ink:#E8C88A; --sea-strength:.5; }
+  [data-season="autumn"]{ --stem:#8A7448; --sea:#402A1C; --sea-ink:#D89A5C; --sea-strength:.5; }
+  [data-season="winter"]{ --stem:#6E787A; --sea:#1E2A38; --sea-ink:#C6D6E8; --sea-strength:.45; }
 }
 
 /* the viewer's theme toggle stamps data-theme; it must beat the media query */
@@ -101,6 +119,10 @@
 :root[data-theme="light"][data-phase="day"]   { --amb-a:#E3E9C9; --amb-b:#D9E6DE; }
 :root[data-theme="light"][data-phase="dusk"]  { --amb-a:#F1C7C2; --amb-b:#E0D3E2; }
 :root[data-theme="light"][data-phase="night"] { --amb-a:#CDD4EC; --amb-b:#D8DEE6; --amb-strength:.5; }
+:root[data-theme="light"][data-season="spring"]{ --stem:#8FBF7E; --sea:#CFE3BE; --sea-ink:#7FA86A; --sea-strength:.16; }
+:root[data-theme="light"][data-season="summer"]{ --stem:#86AE78; --sea:#EFDCA8; --sea-ink:#D9B45C; --sea-strength:.16; }
+:root[data-theme="light"][data-season="autumn"]{ --stem:#AE9868; --sea:#E8C48F; --sea-ink:#C98A4B; --sea-strength:.16; }
+:root[data-theme="light"][data-season="winter"]{ --stem:#A6B1AA; --sea:#CBD8E6; --sea-ink:#9FB8D0; --sea-strength:.13; }
 
 :root[data-theme="dark"]{
   --ground:#17121D; --ground-deep:#110D16; --surface:#221B29; --surface-2:#2B2333;
@@ -116,6 +138,10 @@
 :root[data-theme="dark"][data-phase="day"]   { --amb-a:#4A4438; --amb-b:#33404A; }
 :root[data-theme="dark"][data-phase="dusk"]  { --amb-a:#6B3145; --amb-b:#3A2B52; }
 :root[data-theme="dark"][data-phase="night"] { --amb-a:#2F3468; --amb-b:#432A4A; }
+:root[data-theme="dark"][data-season="spring"]{ --stem:#6F9268; --sea:#26382A; --sea-ink:#8FBF7E; --sea-strength:.5; }
+:root[data-theme="dark"][data-season="summer"]{ --stem:#5E8560; --sea:#3B3320; --sea-ink:#E8C88A; --sea-strength:.5; }
+:root[data-theme="dark"][data-season="autumn"]{ --stem:#8A7448; --sea:#402A1C; --sea-ink:#D89A5C; --sea-strength:.5; }
+:root[data-theme="dark"][data-season="winter"]{ --stem:#6E787A; --sea:#1E2A38; --sea-ink:#C6D6E8; --sea-strength:.45; }
 
 *,*::before,*::after{ box-sizing:border-box; }
 
@@ -149,6 +175,19 @@ body::before{
   background:
     radial-gradient(120% 70% at 12% -8%,  var(--amb-a), transparent 62%),
     radial-gradient(110% 65% at 92% 4%,   var(--amb-b), transparent 58%);
+  transition:opacity 1.2s ease;
+}
+
+/* seasonal light — rises off the ground rather than falling from the sky,
+   so it reads as the garden's own colour rather than another sunrise */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:var(--sea-strength);
+  background:radial-gradient(150% 62% at 50% 112%, var(--sea), transparent 72%);
   transition:opacity 1.2s ease;
 }
 
@@ -532,6 +571,7 @@ textarea::placeholder{ color:var(--ink-faint); font-style:italic; }
   font-variant-numeric:tabular-nums;
 }
 .bed{
+  position:relative;
   display:flex;
   flex-wrap:wrap;
   align-items:flex-end;
@@ -539,7 +579,20 @@ textarea::placeholder{ color:var(--ink-faint); font-style:italic; }
   padding-top:6px;
   border-bottom:1px solid var(--line-soft);
 }
+/* a hint of earth for the stems to stand in */
+.bed::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:18px;
+  z-index:0;
+  pointer-events:none;
+  opacity:.65;
+  background:linear-gradient(to top, var(--ground-deep), transparent);
+}
 .bloom{
+  position:relative;
+  z-index:1;
   border:0;
   background:transparent;
   padding:4px 2px 0;
@@ -561,6 +614,17 @@ textarea::placeholder{ color:var(--ink-faint); font-style:italic; }
   to  { transform:none; opacity:1; }
 }
 
+/* Air moving through the bed. Each stem gets its own speed and a negative
+   delay so they start out of step — in step it reads as a machine, not a
+   garden. Lives on a wrapper so the grow animation and the hover lift
+   both keep their own transform. */
+.bloom .stalk{ display:block; transform-origin:50% 100%; }
+.bloom.sway .stalk{ animation:sway var(--sd,7s) ease-in-out var(--so,0s) infinite; }
+@keyframes sway{
+  0%,100%{ transform:rotate(-1.2deg); }
+  50%    { transform:rotate(1.2deg); }
+}
+
 .empty{
   text-align:center;
   padding:44px 12px;
@@ -574,6 +638,83 @@ textarea::placeholder{ color:var(--ink-faint); font-style:italic; }
   text-wrap:balance;
 }
 .empty .btn{ width:auto; padding:12px 24px; border-radius:999px; }
+
+.season-note{
+  margin:6px 0 0;
+  font-family:ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+  font-style:italic;
+  font-size:14px;
+  color:var(--ink-faint);
+}
+
+/* ------------------------------------------------------- garden life
+   Things that pass through the garden. Nothing here is counted, earned
+   or collected — it arrives, it leaves, and some visits nothing comes.
+   Purely decorative, so the whole layer is hidden from screen readers
+   and never takes a tap. */
+#critters{
+  position:fixed;
+  inset:0;
+  z-index:2;
+  overflow:hidden;
+  pointer-events:none;
+}
+.critter{
+  position:absolute;
+  left:0;
+  top:0;
+  will-change:transform;
+}
+.critter .bob{ will-change:transform; }
+.critter svg{ display:block; transform:scale(var(--sc,1)); }
+
+/* crossing the screen */
+.critter.ltr{ animation:crossR var(--dur,16s) linear both; }
+.critter.rtl{ animation:crossL var(--dur,16s) linear both; }
+@keyframes crossR{ from{ transform:translateX(-18vw); } to{ transform:translateX(118vw); } }
+@keyframes crossL{ from{ transform:translateX(118vw) scaleX(-1); } to{ transform:translateX(-18vw) scaleX(-1); } }
+.critter.ltr .bob, .critter.rtl .bob{ animation:bob var(--bob,3s) ease-in-out infinite; }
+@keyframes bob{
+  0%,100%{ transform:translateY(calc(var(--amp,16px) * -1)); }
+  50%    { transform:translateY(var(--amp,16px)); }
+}
+
+/* falling */
+.critter.drop{ animation:drop var(--dur,10s) linear both; }
+@keyframes drop{ from{ transform:translateY(-16vh); } to{ transform:translateY(116vh); } }
+.critter.drop .bob{ animation:driftLeaf var(--sw,3.4s) ease-in-out infinite; }
+@keyframes driftLeaf{
+  0%,100%{ transform:translateX(-26px) rotate(-22deg); }
+  50%    { transform:translateX(26px) rotate(22deg); }
+}
+.critter.c-snow .bob{ animation:driftSnow var(--sw,4.6s) ease-in-out infinite; }
+@keyframes driftSnow{
+  0%,100%{ transform:translateX(-13px); }
+  50%    { transform:translateX(13px); }
+}
+
+/* wings */
+.c-butterfly .wl, .c-butterfly .wr{ transform-box:view-box; transform-origin:14px 11px; }
+.c-butterfly .wl, .c-butterfly .wr{ animation:flap .3s ease-in-out infinite alternate; }
+@keyframes flap{ from{ transform:scaleX(1); } to{ transform:scaleX(.26); } }
+
+.c-bee .wl, .c-bee .wr{ transform-box:view-box; transform-origin:10.5px 5px; }
+.c-bee .wl, .c-bee .wr{ animation:buzz .11s ease-in-out infinite alternate; }
+@keyframes buzz{ from{ transform:scaleX(1); } to{ transform:scaleX(.5); } }
+
+.c-bird .wl, .c-bird .wr{ transform-box:view-box; transform-origin:15px 7px; }
+.c-bird .wl{ animation:flapL .38s ease-in-out infinite alternate; }
+.c-bird .wr{ animation:flapR .38s ease-in-out infinite alternate; }
+@keyframes flapL{ from{ transform:rotate(4deg); } to{ transform:rotate(-24deg); } }
+@keyframes flapR{ from{ transform:rotate(-4deg); } to{ transform:rotate(24deg); } }
+
+/* a firefly is mostly its light going on and off */
+.c-firefly svg{ animation:glow var(--gl,3.6s) ease-in-out infinite; }
+@keyframes glow{
+  0%,100%{ opacity:.04; }
+  40%    { opacity:.95; }
+  68%    { opacity:.2; }
+}
 
 /* ------------------------------------------------------------ sheet */
 .scrim{
@@ -871,12 +1012,6 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
   color:var(--ink-soft);
 }
 .hint p{ margin:0; }
-.hint > .body{ flex:1 1 auto; min-width:0; }
-.text-btn.tight{
-  margin:7px 0 0 -12px;
-  color:var(--accent);
-  font-size:13.5px;
-}
 .hint .x, .note-card .x{
   flex:none;
   border:0; background:transparent;
@@ -925,14 +1060,6 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
       <div id="installHint" class="hint" hidden>
         <p>Tip — tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>. It opens like an app, and keeps your entries safer.</p>
         <button class="x" id="hintClose" aria-label="Dismiss tip">&times;</button>
-      </div>
-
-      <div id="backupNudge" class="hint" hidden>
-        <div class="body">
-          <p id="backupNudgeText"></p>
-          <button class="text-btn tight" id="backupNudgeGo">Save a copy</button>
-        </div>
-        <button class="x" id="backupNudgeClose" aria-label="Not now">&times;</button>
       </div>
 
       <div class="reminder">
@@ -996,6 +1123,7 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
       <div class="garden-head">
         <h2>Your garden</h2>
         <p id="gardenCount">&nbsp;</p>
+        <p class="season-note" id="seasonNote"></p>
       </div>
       <div id="months"></div>
       <div id="empty" class="empty" hidden>
@@ -1005,6 +1133,12 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
     </section>
   </main>
 </div>
+
+<!-- Wildlife lives outside .shell on purpose: .view keeps a transform on
+     itself (animation-fill-mode:both), which would make it the containing
+     block for position:fixed and trap everything inside the section. It is
+     emptied whenever the garden isn't on screen. -->
+<div id="critters" aria-hidden="true"></div>
 
 <div id="sheetHost"></div>
 <div id="toastHost"></div>
@@ -1149,7 +1283,6 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
   const LS_NOTEDAY = "bloom.notehidden.v1";   // day index she dismissed a note on
   const LS_NOTESOFF= "bloom.notesoff.v1";     // "1" = don't show them at all
   const LS_BACKUP  = "bloom.lastbackup.v1";   // when she last took a copy, and of how many
-  const LS_NUDGED  = "bloom.backupnudge.v1";  // day she last waved the offer away
   const LEGACY_KEY = "bloom-entries";
   const MAX_LEN    = 1400;
 
@@ -1347,6 +1480,31 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
     document.documentElement.setAttribute("data-phase", phase);
     return phase;
   }
+  /* ------------------------------------------------------------ seasons */
+  // Northern hemisphere, by calendar month — near enough, and it needs no
+  // location permission to work out.
+  const SEASONS = ["winter","winter","spring","spring","spring","summer",
+                   "summer","summer","autumn","autumn","autumn","winter"];
+  function seasonOf(d){ return SEASONS[d.getMonth()]; }
+  function applySeason(){
+    const s = seasonOf(new Date());
+    document.documentElement.setAttribute("data-season", s);
+    return s;
+  }
+  const SEASON_NOTES = {
+    spring: ["The light's coming back.", "Everything's starting again.", "Green weather."],
+    summer: ["Long days.", "The garden's at its fullest.", "Warm light, late evenings."],
+    autumn: ["The light's turning gold.", "Everything's slowing down.", "Softer weather."],
+    winter: ["Quiet in the garden.", "Resting weather.", "Still, and waiting."]
+  };
+  function renderSeasonNote(){
+    const el = $("seasonNote");
+    if (!el) return;
+    if (!entries.length){ el.textContent = ""; return; }
+    const set = SEASON_NOTES[applySeason()] || [];
+    el.textContent = set.length ? set[dayIndex(new Date()) % set.length] : "";
+  }
+
   function greetingFor(h){
     if (h < 5)  return "You're up late";
     if (h < 12) return "Good morning";
@@ -1427,6 +1585,7 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
   function renderHeader(){
     const now = new Date();
     applyPhase();
+    applySeason();
     $("greeting").textContent = greetingFor(now.getHours());
     $("dateline").textContent = now.toLocaleDateString(undefined, { weekday:"long", month:"long", day:"numeric" });
   }
@@ -1562,9 +1721,11 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
     if (!entries.length){
       empty.hidden = false;
       count.textContent = "Nothing here yet";
+      renderSeasonNote();
       return;
     }
     empty.hidden = true;
+    renderSeasonNote();
 
     const days = new Set(entries.map(function(e){ return e.date.slice(0,10); }));
     const first = new Date(entries[0].date);
@@ -1582,6 +1743,8 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
     });
     const keys = Array.from(groups.keys()).sort().reverse();
     const thisYear = new Date().getFullYear();
+    const canSway = !reducedMotion();
+    const swayLater = [];
     let n = 0;
 
     keys.forEach(function(k){
@@ -1613,8 +1776,19 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
         btn.setAttribute("aria-haspopup", "dialog");
         const summary = (e.from ? "from " + e.from + " — " : "") +
           (e.text ? e.text.slice(0, 60) : (m ? "feeling " + m.name.toLowerCase() : "a quiet moment"));
-        btn.innerHTML = bloomSVG(e, { label: fmtDate(e.date, false) + " — " + summary });
+        btn.innerHTML = '<span class="stalk">' +
+          bloomSVG(e, { label: fmtDate(e.date, false) + " — " + summary }) + '</span>';
         btn.addEventListener("click", function(){ openEntry(e, btn); });
+
+        // Only the blooms she can plausibly see sway — a garden with 400
+        // moments in it shouldn't animate all 400 to move about six pixels.
+        if (canSway && n < 48){
+          const s = hashCode(e.id);
+          btn.style.setProperty("--sd", (5.4 + (s % 45) / 10).toFixed(1) + "s");
+          btn.style.setProperty("--so", "-" + (((s >> 5) % 70) / 10).toFixed(1) + "s");
+          if (animate) swayLater.push(btn); else btn.classList.add("sway");
+        }
+
         bed.appendChild(btn);
         n++;
       });
@@ -1623,6 +1797,177 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
       sec.appendChild(bed);
       host.appendChild(sec);
     });
+
+    // grow first, sway after — they'd fight over the same transform
+    if (swayLater.length){
+      window.setTimeout(function(){
+        swayLater.forEach(function(b){ b.classList.add("sway"); });
+      }, 1200);
+    }
+  }
+
+  /* ------------------------------------------------------- garden life */
+  // Butterflies, bees, a bird, leaves, snow, fireflies after dark. They
+  // arrive on their own and leave on their own; there is nothing to tap,
+  // nothing to collect and no reward for catching one. Some visits the
+  // garden is just still — that's what makes the other visits worth it.
+  const CRITTER_SVG = {
+    butterfly:
+      '<svg width="28" height="22" viewBox="0 0 28 22" aria-hidden="true">' +
+        '<g class="wl" fill="var(--accent)" opacity=".76">' +
+          '<path d="M14 11C8.4 2.6 2.2 3 1.4 7.6.8 11.2 6.4 12.2 14 11Z"/>' +
+          '<path d="M14 11C9 13.4 3.8 15.4 5 18.8c1 2.8 6.4-2.4 9-7.8Z"/>' +
+        '</g>' +
+        '<g class="wr" fill="var(--accent)" opacity=".76">' +
+          '<path d="M14 11c5.6-8.4 11.8-8 12.6-3.4.6 3.6-5 4.6-12.6 3.4Z"/>' +
+          '<path d="M14 11c5 2.4 10.2 4.4 9 7.8-1 2.8-6.4-2.4-9-7.8Z"/>' +
+        '</g>' +
+        '<ellipse cx="14" cy="11.6" rx="1" ry="4.6" fill="var(--ink-soft)" opacity=".7"/>' +
+        '<path d="M14 7.4c-.6-1.8-2-2.8-3-3M14 7.4c.6-1.8 2-2.8 3-3" fill="none" ' +
+          'stroke="var(--ink-soft)" stroke-width=".7" stroke-linecap="round" opacity=".5"/>' +
+      '</svg>',
+    bee:
+      '<svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true">' +
+        '<g class="wl" fill="var(--surface)" opacity=".6"><ellipse cx="8" cy="4" rx="5" ry="2.8"/></g>' +
+        '<g class="wr" fill="var(--surface)" opacity=".6"><ellipse cx="13" cy="4" rx="5" ry="2.8"/></g>' +
+        '<ellipse cx="10.6" cy="8.8" rx="5.8" ry="3.8" fill="var(--gold)"/>' +
+        '<path d="M9.2 5.4a6 4 0 0 0-.4 6.6M12 5.2a6 4 0 0 1 .4 7" fill="none" ' +
+          'stroke="var(--ink)" stroke-width="1.2" opacity=".45"/>' +
+        '<circle cx="16" cy="7.8" r="2.1" fill="var(--ink-soft)" opacity=".85"/>' +
+      '</svg>',
+    bird:
+      '<svg width="30" height="14" viewBox="0 0 30 14" aria-hidden="true">' +
+        '<g fill="none" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity=".5">' +
+          '<path class="wl" d="M15 7C11.4 3.6 8 2.4 4 3.2"/>' +
+          '<path class="wr" d="M15 7c3.6-3.4 7-4.6 11-3.8"/>' +
+        '</g>' +
+      '</svg>',
+    leaf:
+      '<svg width="16" height="20" viewBox="0 0 16 20" aria-hidden="true">' +
+        '<path d="M8 .8C2.6 5 .4 10.4 2.6 15.6 4.4 19.8 11 19.4 13.6 15 16 10.8 13.4 4.6 8 .8Z" ' +
+          'fill="var(--sea-ink)" opacity=".85"/>' +
+        '<path d="M8 2.6v15M8 8 4.6 5.8M8 12l3.8-2.4" fill="none" stroke="var(--stem)" ' +
+          'stroke-width=".9" stroke-linecap="round" opacity=".55"/>' +
+      '</svg>',
+    snow:
+      '<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">' +
+        '<g fill="none" stroke="var(--sea-ink)" stroke-width="1" stroke-linecap="round" opacity=".8">' +
+          '<path d="M5 1v8M1.6 3l6.8 4M8.4 3 1.6 7"/>' +
+        '</g>' +
+      '</svg>',
+    firefly:
+      '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">' +
+        '<circle cx="7" cy="7" r="6" fill="var(--gold)" opacity=".16"/>' +
+        '<circle cx="7" cy="7" r="3" fill="var(--gold)" opacity=".45"/>' +
+        '<circle cx="7" cy="7" r="1.4" fill="var(--gold)"/>' +
+      '</svg>'
+  };
+
+  let lifeTimers = [];
+  let liveCritters = 0;
+
+  function rand(a, b){ return a + Math.random() * (b - a); }
+
+  function gardenAlive(){
+    const view = $("view-garden");
+    return !!view && !view.hidden && entries.length > 0 && !reducedMotion();
+  }
+
+  function stopGardenLife(){
+    lifeTimers.forEach(function(t){ window.clearTimeout(t); });
+    lifeTimers = [];
+    const host = $("critters");
+    if (host) host.textContent = "";
+    liveCritters = 0;
+  }
+
+  function startGardenLife(){
+    stopGardenLife();
+    if (!gardenAlive()) return;
+    // one arrival soon after she looks — but only sometimes. A garden you
+    // are guaranteed to find something in stops being a nice surprise.
+    lifeTimers.push(window.setTimeout(function(){
+      if (gardenAlive() && !document.hidden && Math.random() < .55) spawnCritter();
+    }, rand(1400, 5200)));
+    keepGoing();
+  }
+
+  function keepGoing(){
+    lifeTimers.push(window.setTimeout(function(){
+      if (!gardenAlive()) return;
+      if (!document.hidden && Math.random() < .4) spawnCritter();
+      keepGoing();
+    }, rand(22000, 48000)));
+  }
+
+  // what's out depends on the time of year, and the time of day
+  function critterKinds(){
+    const el = document.documentElement;
+    const season = el.getAttribute("data-season") || "summer";
+    const night = el.getAttribute("data-phase") === "night";
+    if (season === "winter") return night ? ["snow"] : ["snow","snow","bird"];
+    if (night) return ["firefly"];
+    if (season === "autumn") return ["leaf","leaf","leaf","bee","bird"];
+    return ["butterfly","butterfly","butterfly","bee","bee","bird"];
+  }
+
+  function spawnCritter(){
+    const kinds = critterKinds();
+    const kind = kinds[Math.floor(Math.random() * kinds.length)];
+    // one leaf falling on its own looks like a bug; a few looks like autumn
+    if (kind === "leaf" || kind === "snow"){
+      const n = 3 + Math.floor(Math.random() * 4);
+      for (let i = 0; i < n; i++){
+        lifeTimers.push(window.setTimeout(function(){
+          if (gardenAlive() && !document.hidden) makeCritter(kind);
+        }, i * rand(700, 2100)));
+      }
+      return;
+    }
+    makeCritter(kind);
+  }
+
+  function makeCritter(kind){
+    const host = $("critters");
+    if (!host || liveCritters > 7) return;
+
+    const el = document.createElement("div");
+    el.className = "critter c-" + kind;
+
+    if (kind === "leaf" || kind === "snow"){
+      el.classList.add("drop");
+      el.style.left = rand(2, 90).toFixed(1) + "%";
+      el.style.setProperty("--dur", (kind === "snow" ? rand(12, 20) : rand(7, 12)).toFixed(1) + "s");
+      el.style.setProperty("--sw", rand(2.8, 5).toFixed(1) + "s");
+      el.style.setProperty("--sc", rand(.65, 1.15).toFixed(2));
+    } else {
+      el.classList.add(Math.random() < .5 ? "ltr" : "rtl");
+      el.style.top = (kind === "bird" ? rand(12, 30) : rand(26, 76)).toFixed(1) + "%";
+      el.style.setProperty("--dur",
+        (kind === "bird" ? rand(7, 11) : kind === "firefly" ? rand(26, 44) : rand(13, 23)).toFixed(1) + "s");
+      el.style.setProperty("--bob", rand(2.2, 4).toFixed(1) + "s");
+      el.style.setProperty("--amp", Math.round(kind === "bird" ? rand(6, 14) : rand(12, 30)) + "px");
+      el.style.setProperty("--sc", rand(.8, 1.15).toFixed(2));
+      el.style.setProperty("--gl", rand(2.8, 4.6).toFixed(1) + "s");
+    }
+
+    el.innerHTML = '<div class="bob">' + CRITTER_SVG[kind] + '</div>';
+    liveCritters++;
+
+    let gone = false;
+    function leave(){
+      if (gone) return;
+      gone = true;
+      el.remove();
+      liveCritters = Math.max(0, liveCritters - 1);
+    }
+    // the bob and the wings loop forever, so only the crossing counts as done
+    el.addEventListener("animationend", function(ev){ if (ev.target === el) leave(); });
+    // belt and braces: if the animation never reports back (backgrounded
+    // mid-flight, say) it still tidies itself up rather than piling up
+    lifeTimers.push(window.setTimeout(leave, 70000));
+
+    host.appendChild(el);
   }
 
   /* ------------------------------------------------------------ sheets */
@@ -2104,10 +2449,10 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
 
   // A download can be blocked without throwing, so we never claim success.
   // We try to save a file, then always offer copy-and-paste as a sure thing.
+  // Recorded only so Settings can say when the last copy was taken. She is
+  // never chased about it — the offer sits in Settings and waits.
   function markBackedUp(){
     lsSet(LS_BACKUP, JSON.stringify({ at: new Date().toISOString(), count: entries.length }));
-    lsDel(LS_NUDGED);
-    renderBackupNudge();
   }
 
   async function doBackup(){
@@ -2246,7 +2591,6 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
     renderGarden(false);
     renderEcho();
     const added = entries.length - before;
-    renderBackupNudge();
     if (done) done();
     toast(added === 0 ? "Everything in that backup was already here."
                       : "Restored " + added + (added === 1 ? " moment." : " moments."));
@@ -2313,7 +2657,8 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
       tab.tabIndex = on ? 0 : -1;
       panel.hidden = !on;
     });
-    if (name === "garden") renderGarden(true);
+    if (name === "garden"){ renderGarden(true); startGardenLife(); }
+    else stopGardenLife();
     if (name === "today") renderEcho();
     if (focus) $("tab-" + name).focus();
     window.scrollTo(0, 0);
@@ -2398,7 +2743,6 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
     updateSaveBtn();
     renderGarden(false);
     renderEcho();
-    renderBackupNudge();
     flash(text ? "Saved. One more thing in your garden." : "Saved. Just how you're feeling is enough.");
     offerDeepen(text ? entry : null);
   }
@@ -2468,22 +2812,6 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
       (behind > 0 ? " — " + behind + (behind === 1 ? " moment" : " moments") + " since." : " — up to date.");
   }
 
-  // A quiet offer, not a reminder: only once she's well ahead of her last
-  // copy, and never again for a fortnight if she waves it away.
-  function renderBackupNudge(){
-    const card = $("backupNudge");
-    const b = lastBackup();
-    const behind = entries.length - (b ? b.count : 0);
-    const waved = Number(lsGet(LS_NUDGED) || 0);
-    const due = !waved || (dayIndex(new Date()) - waved) >= 14;
-
-    if (behind < 10 || !due){ card.hidden = true; return; }
-    card.hidden = false;
-    $("backupNudgeText").textContent = b
-      ? "You've grown " + behind + " moments since your last copy. Worth saving another?"
-      : "There are " + entries.length + " moments in your garden now. Worth keeping a copy somewhere safe?";
-  }
-
   /* ------------------------------------------------------------ install hint */
   function maybeShowHint(){
     if (lsGet(LS_HINT)) return;
@@ -2520,12 +2848,6 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
       $("noteCard").hidden = true;
       lsSet(LS_NOTEDAY, String(dayIndex(new Date())));
     });
-    $("backupNudgeGo").addEventListener("click", doBackup);
-    $("backupNudgeClose").addEventListener("click", function(){
-      $("backupNudge").hidden = true;
-      lsSet(LS_NUDGED, String(dayIndex(new Date())));
-    });
-
     const ta = $("entryText");
     ta.addEventListener("input", function(){
       updateSaveBtn();
@@ -2549,11 +2871,17 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
     // the hour moves; so should the light
     window.setInterval(function(){
       applyPhase();
+      applySeason();
       $("greeting").textContent = greetingFor(new Date().getHours());
     }, 5 * 60 * 1000);
 
     document.addEventListener("visibilitychange", function(){
-      if (!document.hidden){ renderHeader(); renderAffirmation(); renderNote(); }
+      if (document.hidden){ stopGardenLife(); return; }
+      renderHeader();
+      renderAffirmation();
+      renderNote();
+      // anything mid-flight was cleared on the way out; start the garden over
+      if (!$("view-garden").hidden){ renderSeasonNote(); startGardenLife(); }
     });
   }
 
@@ -2561,6 +2889,7 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
   async function init(){
     askForDurableStorage();
     applyTheme();
+    applySeason();
     renderHeader();
     renderAffirmation();
     renderNote();
@@ -2574,7 +2903,6 @@ button.mood-pill:hover{ border-color:var(--ink-faint); }
     entries = seedFirstBloom(await loadAll());
     renderGarden(false);
     renderEcho();
-    renderBackupNudge();
 
     if (!lsSet("bloom.probe", "1")){
       flash("Heads up — this browser isn't letting Bloom save anything. Private Browsing usually causes this.", true);
